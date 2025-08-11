@@ -26,7 +26,7 @@
     <!-- Security Headers -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self';">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="DENY">
+    <!-- X-Frame-Options should be set via HTTP header, not meta tag -->
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta name="csrf-token" content="generated-csrf-token-here">
@@ -47,9 +47,10 @@
             <a href="index.html" class="header-logo">
                 <span class="logo-pre">Pre</span><span class="logo-vit">VIT</span>
             </a>
-            <nav class="main-nav">
+            <div class="header-nav-wrapper">
                 <a href="brand.html" class="nav-item" data-page="brand">BRAND</a>
-            </nav>
+                <a href="product.html" class="nav-item" data-page="product">PRODUCT</a>
+            </div>
         </div>
         <div class="nav-indicator"></div>
     </header>
@@ -126,26 +127,27 @@
     <section id="team" class="team-section">
         <div class="container">
             <h2 class="section-title">WHO WE ARE</h2>
-            <div class="team-members">
+            <div class="team-members">                
                 <div class="team-member">
                     <div class="member-photo">
-                        <img src="asset/홍규.png" alt="이홍규 CEO">
+                        <img src="asset/민아.png" alt="서민아 CEO">
                     </div>
-                    <h3>이홍규 <span class="role-highlight">CEO</span></h3>
-                    <div class="role-tags">
+                    <h3>서민아 <span class="role-highlight">CEO</span></h3>
+                    <div class="role-tags">                        
+                        <span class="role-tag">디자인</span>
+                        <span class="role-tag">마케팅</span>
                         <span class="role-tag">기획</span>
-                        <span class="role-tag">개발</span>
-                        <span class="role-tag">비지니스</span>
                     </div>
                 </div>
                 <div class="team-member">
                     <div class="member-photo">
-                        <img src="asset/민아.png" alt="서민아 CDO">
+                        <img src="asset/홍규.png" alt="이홍규 CTO">
                     </div>
-                    <h3>서민아 <span class="role-highlight">CDO</span></h3>
+                    <h3>이홍규 <span class="role-highlight">CTO</span></h3>
                     <div class="role-tags">
-                        <span class="role-tag">디자인</span>
-                        <span class="role-tag">마케팅</span>
+                        <span class="role-tag">개발</span>
+                        <span class="role-tag">비지니스</span>
+                        <span class="role-tag">기획</span>
                     </div>
                 </div>
             </div>
@@ -182,12 +184,14 @@
         <div class="container">
             <div class="footer-content">
                 <p class="company-name">프레빗랩</p>
-                <p class="ceo-info"><span class="bold-label">대표</span> 이홍규</p>
-                <p class="contact-info"><span class="bold-label">문의</span> hg1771@gmail.com</p>
+                <p class="ceo-info"><span class="bold-label">대표</span> 서민아</p>
+                <p class="contact-info"><span class="bold-label">문의</span> previtlab@gmail.com</p>
             </div>
         </div>
     </section>
 
+    <script src="navigation.js"></script>
+    <script src="animations.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

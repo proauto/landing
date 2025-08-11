@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BRAND - PreVIT</title>
-    <meta name="description" content="PreVIT의 브랜드 아이덴티티와 디자인 가이드라인을 확인하세요.">
-    <meta name="keywords" content="PreVIT, 브랜드, 로고, 디자인, 아이덴티티">
+    <meta name="description" content="PreVIT LAB - Prepare Your Vision with IT">
+    <meta name="keywords" content="PreVIT, 브랜드, 비전, IT, 프레빗랩">
     
     <!-- Open Graph Meta Tags for Social Media Preview -->
     <meta property="og:title" content="BRAND - PreVIT">
-    <meta property="og:description" content="PreVIT의 브랜드 아이덴티티와 디자인 가이드라인을 확인하세요.">
+    <meta property="og:description" content="PreVIT LAB - Prepare Your Vision with IT">
     <meta property="og:image" content="https://previt-lani.netlify.app/asset/프리뷰.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -20,13 +20,13 @@
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="BRAND - PreVIT">
-    <meta name="twitter:description" content="PreVIT의 브랜드 아이덴티티와 디자인 가이드라인을 확인하세요.">
+    <meta name="twitter:description" content="PreVIT LAB - Prepare Your Vision with IT">
     <meta name="twitter:image" content="https://previt-lani.netlify.app/asset/프리뷰.png">
     
     <!-- Security Headers -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self';">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="DENY">
+    <!-- X-Frame-Options should be set via HTTP header, not meta tag -->
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta name="csrf-token" content="generated-csrf-token-here">
@@ -36,9 +36,155 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .brand-first-section {
+            height: 1000px;
+            background: linear-gradient(180deg, #EDF2FB 0%, #FFFFFF 100%);
+            position: relative;
+        }
+        
+        .brand-title {
+            position: absolute;
+            top: 48px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 36px;
+            color: #0D0E78;
+            text-align: center;
+        }
+        
+        .brand-subtitle {
+            position: absolute;
+            top: 124px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 400;
+            font-size: 28px;
+            color: #0D0E78;
+            text-align: center;
+        }
+        
+        .brand-circles {
+            position: absolute;
+            top: 234px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 46px;
+            align-items: center;
+        }
+        
+        .brand-circle {
+            width: 396px;
+            height: 396px;
+            border-radius: 50%;
+            background: transparent;
+            border: 2px solid #0D0E78;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 32px;
+            color: #0D0E78;
+        }
+        
+        .brand-circle .highlight {
+            color: #006FFF;
+        }
+        
+        .brand-divider {
+            position: absolute;
+            top: 713px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 64px;
+            height: 3px;
+            background: #0D0E78;
+        }
+        
+        .brand-question {
+            position: absolute;
+            top: 793px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 28px;
+            color: #000000;
+            line-height: 1.5;
+        }
+        
+        .brand-question-bold {
+            font-weight: 700;
+        }
+        
+        .brand-second-section {
+            height: 1000px;
+            background: url('asset/미션배경.png') center/cover no-repeat;
+            position: relative;
+            padding: 48px 0;
+        }
+        
+        .work-title {
+            position: absolute;
+            top: 48px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 700;
+            font-size: 36px;
+            color: #EDF2FB;
+            text-align: center;
+        }
+        
+        .work-cards-container {
+            position: absolute;
+            top: 144px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            width: 1280px;
+        }
+        
+        .work-box {
+            width: 1280px;
+            height: 243px;
+            background: #FFFFFF;
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+        
+        .work-box-title {
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 700;
+            font-size: 28px;
+            color: #0D0E78;
+        }
+        
+        .work-box-text {
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 400;
+            font-size: 20px;
+            color: #000000;
+            text-align: center;
+            line-height: 1.5;
+        }
+    </style>
 </head>
 <body>
     <!-- Header Navigation -->
@@ -47,82 +193,77 @@
             <a href="index.html" class="header-logo">
                 <span class="logo-pre">Pre</span><span class="logo-vit">VIT</span>
             </a>
-            <nav class="main-nav">
+            <div class="header-nav-wrapper">
                 <a href="brand.html" class="nav-item current-page" data-page="brand">BRAND</a>
-            </nav>
+                <a href="product.html" class="nav-item" data-page="product">PRODUCT</a>
+            </div>
         </div>
-        <div class="nav-indicator active" style="left: calc(100% - 120px);"></div>
+        <div class="nav-indicator"></div>
     </header>
 
-    <!-- Brand Hero Section -->
-    <section class="page-hero">
-        <div class="container">
-            <h1>BRAND IDENTITY</h1>
-            <p>PreVIT의 브랜드 철학과 비주얼 아이덴티티</p>
+    <!-- First Section -->
+    <section class="brand-first-section">
+        <h1 class="brand-title">PreVIT LAB</h1>
+        <p class="brand-subtitle">Prepare Your Vision with IT</p>
+        
+        <div class="brand-circles">
+            <div class="brand-circle">
+                <span><span class="highlight">Pre</span>Pare</span>
+            </div>
+            <div class="brand-circle">
+                <span><span class="highlight">Vi</span>sion</span>
+            </div>
+            <div class="brand-circle">
+                <span class="highlight">IT</span>
+            </div>
+        </div>
+        
+        <div class="brand-divider"></div>
+        
+        <div class="brand-question">
+            <div class="brand-question-bold">당신은 어떤 미래를 준비하고 있나요?</div>
+            <div>프레빗랩은 기술을 통해 비전을 구체화합니다.</div>
         </div>
     </section>
 
-    <!-- Brand Content -->
-    <section class="brand-content">
-        <div class="container">
-            <div class="content-block">
-                <h2>브랜드 네임</h2>
-                <div class="brand-name-showcase">
-                    <div class="logo-display">
-                        <span class="logo-pre">Pre</span><span class="logo-vit">VIT</span>
-                    </div>
-                    <p><strong>Pre</strong>는 '미리, 사전에'라는 의미로 문제를 예측하고 준비한다는 뜻을 담고 있습니다.</p>
-                    <p><strong>VIT</strong>는 '활력, 생명력'을 의미하는 Vitality에서 따온 것으로, 혁신적인 에너지를 상징합니다.</p>
-                </div>
+    <!-- Second Section -->
+    <section class="brand-second-section">
+        <h2 class="work-title">우리가 일하는 방식</h2>
+        
+        <div class="work-cards-container">
+            <div class="work-box">
+                <div class="work-box-title">빠른 실행</div>
+                <div class="work-box-text">좋은 아이디어는 많지만, 직접 해보는 용기는 드뭅니다.</div>
+                <div class="work-box-text">작더라도 직접 실험해보는 것을 가장 중요하게 생각합니다.</div>
             </div>
             
-            <div class="content-block">
-                <h2>브랜드 컬러</h2>
-                <div class="color-palette">
-                    <div class="color-item">
-                        <div class="color-swatch" style="background: #0001D9;"></div>
-                        <div class="color-info">
-                            <h4>Primary Blue</h4>
-                            <p>#0001D9</p>
-                        </div>
-                    </div>
-                    <div class="color-item">
-                        <div class="color-swatch" style="background: #1e3a8a;"></div>
-                        <div class="color-info">
-                            <h4>Secondary Blue</h4>
-                            <p>#1e3a8a</p>
-                        </div>
-                    </div>
-                    <div class="color-item">
-                        <div class="color-swatch" style="background: #ffffff; border: 1px solid #ddd;"></div>
-                        <div class="color-info">
-                            <h4>White</h4>
-                            <p>#ffffff</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="work-box">
+                <div class="work-box-title">명확한 목적</div>
+                <div class="work-box-text">기술은 수단일 뿐입니다.</div>
+                <div class="work-box-text">우리가 왜 이것을 하는지, 무엇을 바꾸고 싶은지를 먼저 정의합니다.</div>
             </div>
             
-            <div class="content-block">
-                <h2>타이포그래피</h2>
-                <div class="typography-showcase">
-                    <div class="font-example">
-                        <h4>Montserrat - 영문</h4>
-                        <p style="font-family: 'Montserrat', sans-serif; font-weight: 300;">Light 300</p>
-                        <p style="font-family: 'Montserrat', sans-serif; font-weight: 500;">Medium 500</p>
-                        <p style="font-family: 'Montserrat', sans-serif; font-weight: 600;">SemiBold 600</p>
-                    </div>
-                    <div class="font-example">
-                        <h4>Noto Sans KR - 한글</h4>
-                        <p style="font-family: 'Noto Sans KR', sans-serif; font-weight: 400;">Regular 400</p>
-                        <p style="font-family: 'Noto Sans KR', sans-serif; font-weight: 700;">Bold 700</p>
-                        <p style="font-family: 'Noto Sans KR', sans-serif; font-weight: 900;">Black 900</p>
-                    </div>
-                </div>
+            <div class="work-box">
+                <div class="work-box-title">효율 극대화</div>
+                <div class="work-box-text">복잡함은 줄이고, 간단하고 명확하게 일합니다.</div>
+                <div class="work-box-text">불필요한 절차보다는 결과를 만드는 데 집중합니다.</div>
             </div>
         </div>
     </section>
 
+    <!-- Footer Section -->
+    <section id="footer" class="footer-section" style="height: 232px;">
+        <div class="container">
+            <div class="footer-content">
+                <p class="company-name">프레빗랩</p>
+                <p class="ceo-info"><span class="bold-label">대표</span> 서민아</p>
+                <p class="contact-info"><span class="bold-label">문의</span> previtlab@gmail.com</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="navigation.js"></script>
+    <script src="animations.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

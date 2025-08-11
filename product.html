@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRODUCT - PreVIT</title>
+    <meta name="description" content="PreVIT의 제품 및 서비스">
+    <meta name="keywords" content="PreVIT, 제품, 서비스, AI, IT">
+    
+    <!-- Open Graph Meta Tags for Social Media Preview -->
+    <meta property="og:title" content="PRODUCT - PreVIT">
+    <meta property="og:description" content="PreVIT의 제품 및 서비스">
+    <meta property="og:image" content="https://previt-lani.netlify.app/asset/프리뷰.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://previt-lani.netlify.app/product.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="PreVIT">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PRODUCT - PreVIT">
+    <meta name="twitter:description" content="PreVIT의 제품 및 서비스">
+    <meta name="twitter:image" content="https://previt-lani.netlify.app/asset/프리뷰.png">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <!-- X-Frame-Options should be set via HTTP header, not meta tag -->
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta name="csrf-token" content="generated-csrf-token-here">
+    
+    <link rel="icon" type="image/png" href="asset/회색로고.png">
+    <link rel="shortcut icon" type="image/png" href="asset/회색로고.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .product-main-section {
+            height: 2000px;
+            background: #EDF2FB;
+            position: relative;
+            padding: 48px 0;
+        }
+        
+        .product-container {
+            position: absolute;
+            top: 48px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1280px;
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+        }
+        
+        .product-box {
+            width: 1280px;
+            height: 726px;
+            background: #FFFFFF;
+            border-radius: 24px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .product-box img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            object-position: top;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="header-logo">
+                <span class="logo-pre">Pre</span><span class="logo-vit">VIT</span>
+            </a>
+            <div class="header-nav-wrapper">
+                <a href="brand.html" class="nav-item" data-page="brand">BRAND</a>
+                <a href="product.html" class="nav-item current-page" data-page="product">PRODUCT</a>
+            </div>
+        </div>
+        <div class="nav-indicator"></div>
+    </header>
+
+    <!-- Product Section -->
+    <section class="product-main-section">
+        <div class="product-container">
+            <div class="product-box">
+                <img src="asset/service_hyugepick.png" alt="HyugePick Service">
+            </div>
+            <div class="product-box">
+                <img src="asset/service_rrobot.png" alt="RRobot Service">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <section id="footer" class="footer-section">
+        <div class="container">
+            <div class="footer-content">
+                <p class="company-name">프레빗랩</p>
+                <p class="ceo-info"><span class="bold-label">대표</span> 서민아</p>
+                <p class="contact-info"><span class="bold-label">문의</span> previtlab@gmail.com</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="navigation.js"></script>
+    <script src="animations.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

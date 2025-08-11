@@ -68,6 +68,7 @@ body {
     align-items: center;
     justify-content: space-between;
     height: 56px;
+    position: relative;
 }
 
 .header-container .header-logo,
@@ -75,6 +76,24 @@ body {
     margin-top: 0;
     display: flex;
     align-items: center;
+}
+
+.header-nav-wrapper {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 91px;
+    align-items: center;
+}
+
+.nav-item[data-page="brand"] {
+    position: relative;
+}
+
+.nav-item[data-page="product"] {
+    position: relative;
 }
 
 .header-logo {
@@ -94,7 +113,7 @@ body {
 
 .main-nav {
     display: flex;
-    gap: 40px;
+    gap: 32px;
 }
 
 .nav-item {
@@ -113,8 +132,7 @@ body {
 .nav-indicator {
     position: absolute;
     bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
     width: 89px;
     height: 4px;
     background: #0001D9;

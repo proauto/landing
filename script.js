@@ -19,35 +19,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize animations for elements
     function initAnimations() {
-        // Add animation styles to elements
-        const animatedElements = document.querySelectorAll(
-            '.service-content, .mission-content, .contact-content'
-        );
-
-        animatedElements.forEach(element => {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(40px)';
-            element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-            observer.observe(element);
-        });
-
-        // Animate work cards individually
-        const workCards = document.querySelectorAll('.work-card');
-        workCards.forEach((card, index) => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(40px)';
-            card.style.transition = `opacity 0.8s ease ${index * 0.2}s, transform 0.8s ease ${index * 0.2}s`;
-            observer.observe(card);
-        });
-
-        // Animate team members individually
-        const teamMembers = document.querySelectorAll('.team-member');
-        teamMembers.forEach((member, index) => {
-            member.style.opacity = '0';
-            member.style.transform = 'translateY(40px)';
-            member.style.transition = `opacity 0.8s ease ${index * 0.3}s, transform 0.8s ease ${index * 0.3}s`;
-            observer.observe(member);
-        });
+        // Animations are now handled by animations.js
+        // This function is kept for compatibility
     }
 
     // Hero section animation
@@ -57,32 +30,41 @@ document.addEventListener('DOMContentLoaded', function() {
         const mainCopy = document.querySelector('.main-copy');
         const subCopy = document.querySelector('.sub-copy');
 
-        // Initial state
-        logo.style.opacity = '0';
-        logo.style.transform = 'translateX(-50%) translateY(-30px)';
-        mainCopy.style.opacity = '0';
-        mainCopy.style.transform = 'translateX(-50%) translateY(30px)';
-        subCopy.style.opacity = '0';
-        subCopy.style.transform = 'translateX(-50%) translateY(30px)';
+        // Check if elements exist before accessing their style properties
+        if (logo) {
+            // Initial state
+            logo.style.opacity = '0';
+            logo.style.transform = 'translateX(-50%) translateY(-30px)';
+            
+            // Animate elements with delays
+            setTimeout(() => {
+                logo.style.transition = 'opacity 1s ease, transform 1s ease';
+                logo.style.opacity = '1';
+                logo.style.transform = 'translateX(-50%) translateY(0)';
+            }, 300);
+        }
 
-        // Animate elements with delays
-        setTimeout(() => {
-            logo.style.transition = 'opacity 1s ease, transform 1s ease';
-            logo.style.opacity = '1';
-            logo.style.transform = 'translateX(-50%) translateY(0)';
-        }, 300);
+        if (mainCopy) {
+            mainCopy.style.opacity = '0';
+            mainCopy.style.transform = 'translateX(-50%) translateY(30px)';
+            
+            setTimeout(() => {
+                mainCopy.style.transition = 'opacity 1s ease, transform 1s ease';
+                mainCopy.style.opacity = '1';
+                mainCopy.style.transform = 'translateX(-50%) translateY(0)';
+            }, 600);
+        }
 
-        setTimeout(() => {
-            mainCopy.style.transition = 'opacity 1s ease, transform 1s ease';
-            mainCopy.style.opacity = '1';
-            mainCopy.style.transform = 'translateX(-50%) translateY(0)';
-        }, 600);
-
-        setTimeout(() => {
-            subCopy.style.transition = 'opacity 1s ease, transform 1s ease';
-            subCopy.style.opacity = '1';
-            subCopy.style.transform = 'translateX(-50%) translateY(0)';
-        }, 900);
+        if (subCopy) {
+            subCopy.style.opacity = '0';
+            subCopy.style.transform = 'translateX(-50%) translateY(30px)';
+            
+            setTimeout(() => {
+                subCopy.style.transition = 'opacity 1s ease, transform 1s ease';
+                subCopy.style.opacity = '1';
+                subCopy.style.transform = 'translateX(-50%) translateY(0)';
+            }, 900);
+        }
     }
 
     // Floating animation for hero background pattern
@@ -286,16 +268,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Parallax effect for hero section
     function initParallaxEffect() {
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const heroSection = document.querySelector('.hero-section');
-            const heroContent = document.querySelector('.hero-content');
-            
-            if (heroSection && heroContent) {
-                const rate = scrolled * -0.5;
-                heroContent.style.transform = `translateY(${rate}px)`;
-            }
-        });
+        // Disabled to prevent transform conflicts with center alignment
+        // Parallax can interfere with absolute positioning
     }
 
     // Smooth scroll for anchor links (if any are added later)
@@ -316,36 +290,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Navigation functionality
     function initNavigation() {
-        const navItems = document.querySelectorAll('.nav-item');
-        const navIndicator = document.querySelector('.nav-indicator');
-        
-        navItems.forEach(item => {
-            item.addEventListener('mouseenter', function() {
-                const rect = this.getBoundingClientRect();
-                const headerRect = document.querySelector('.main-header').getBoundingClientRect();
-                
-                navIndicator.style.left = (rect.left - headerRect.left + rect.width / 2 - 44.5) + 'px';
-                navIndicator.style.transform = 'translateX(0)';
-                navIndicator.classList.add('active');
-            });
-        });
-        
-        document.querySelector('.main-header').addEventListener('mouseleave', function() {
-            navIndicator.classList.remove('active');
-        });
-        
-        // Handle page navigation with indicator
-        navItems.forEach(item => {
-            item.addEventListener('click', function(e) {
-                e.preventDefault();
-                const href = this.getAttribute('href');
-                
-                // Add a small delay for visual feedback
-                setTimeout(() => {
-                    window.location.href = href;
-                }, 200);
-            });
-        });
+        // Navigation is now handled in common.js
+        // This function is kept for compatibility but functionality moved to common.js
     }
 
     // Initialize all animations and interactions
