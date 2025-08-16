@@ -4,11 +4,11 @@ export function HomeComponent() {
         <!-- Hero Section -->
         <section id="hero" class="hero-section">
             <video class="hero-video" autoplay muted loop playsinline>
-                <source src="/assets/히어로영상.mp4" type="video/mp4">
+                <source src="./assets/히어로영상.mp4" type="video/mp4">
             </video>
             <div class="hero-overlay"></div>
             <div class="hero-content">
-                <img src="/assets/로고.png" alt="PreVIT 로고" class="logo-image">
+                <img src="./assets/로고.png" alt="PreVIT 로고" class="logo-image">
                 <div class="logo">
                     <span class="logo-pre">Pre</span><span class="logo-vit">VIT</span>
                 </div>
@@ -19,7 +19,7 @@ export function HomeComponent() {
 
         <!-- Service Introduction Section -->
         <section id="service-intro" class="service-intro-section">
-            <img src="/assets/중간이미지.png" alt="중간 이미지" class="middle-image">
+            <img src="./assets/중간이미지.png" alt="중간 이미지" class="middle-image">
             <h2 class="service-main-text">작지만 <span class="highlight-blue">분명한 필요</span>를 기술로 해결하는 팀입니다.</h2>
             <div class="service-description-text">
                 <p>당신이 한 번쯤 생각했지만 <span class="bold-text">잊고 지나간 불편함,</span></p>
@@ -34,21 +34,21 @@ export function HomeComponent() {
                 <div class="work-cards">
                     <div class="work-card work-card-gray">
                         <div class="card-icon">
-                            <img src="/assets/생활밀착형.png" alt="생활밀착형">
+                            <img src="./assets/생활밀착형.png" alt="생활밀착형">
                         </div>
                         <h3>생활 밀착형</h3>
                         <p>일상에서 느끼는<br>문제 해결</p>
                     </div>
                     <div class="work-card work-card-blue">
                         <div class="card-icon">
-                            <img src="/assets/빠른실행.png" alt="빠른실행">
+                            <img src="./assets/빠른실행.png" alt="빠른실행">
                         </div>
                         <h3>빠른 실행</h3>
                         <p>아이디어에서<br>결과까지 한번에</p>
                     </div>
                     <div class="work-card work-card-dark">
                         <div class="card-icon">
-                            <img src="/assets/접근성.png" alt="접근성">
+                            <img src="./assets/접근성.png" alt="접근성">
                         </div>
                         <h3>접근성</h3>
                         <p>누구나 쉽게<br>쓸 수 있는 도구</p>
@@ -76,7 +76,7 @@ export function HomeComponent() {
                 <div class="team-members">                
                     <div class="team-member">
                         <div class="member-photo">
-                            <img src="/assets/민아.png" alt="서민아 CEO">
+                            <img src="./assets/민아.png" alt="서민아 CEO">
                         </div>
                         <h3>MINA <span class="role-highlight">CEO</span></h3>
                         <div class="role-tags">                        
@@ -87,7 +87,7 @@ export function HomeComponent() {
                     </div>
                     <div class="team-member">
                         <div class="member-photo">
-                            <img src="/assets/홍규.png" alt="이홍규 CTO">
+                            <img src="./assets/홍규.png" alt="이홍규 CTO">
                         </div>
                         <h3>HARRY <span class="role-highlight">CTO</span></h3>
                         <div class="role-tags">
@@ -104,7 +104,7 @@ export function HomeComponent() {
         <section id="contact" class="contact-section">
             <div class="container">
                 <div class="contact-content">
-                    <img src="/assets/연락처로고.png" alt="연락처 로고" class="contact-logo">
+                    <img src="./assets/연락처로고.png" alt="연락처 로고" class="contact-logo">
                     <h2>우리와 함께 만들고 싶은 것이 있으신가요?</h2>
                     <p>PreVIT LAB은 항상 새로운 제안을 기다립니다.</p>
                     <form class="contact-form">

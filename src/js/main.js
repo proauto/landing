@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
         router = new Router();
         
         // Register routes
-        router.addRoute('/home', HomeComponent);
         router.addRoute('/', HomeComponent);
         router.addRoute('/brand', BrandComponent);
         router.addRoute('/product', ProductComponent);

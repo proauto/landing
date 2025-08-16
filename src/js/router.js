@@ -37,21 +37,27 @@ class Router {
     handleRoute(path) {
         console.log('Handling route:', path);
         
-        // Clean up path
-        const cleanPath = path === '/' ? '/home' : path;
+        // Handle root path
+        if (path === '/') {
+            // Check if we have a component for '/' or '/home'
+            let component = this.routes.get('/') || this.routes.get('/home');
+            if (component) {
+                this.currentRoute = '/';
+                this.renderComponent(component, this.currentRoute);
+                this.updateNavigation(this.currentRoute);
+                return;
+            }
+        }
         
         // Check if route exists
-        let component = this.routes.get(cleanPath) || this.routes.get(path);
+        let component = this.routes.get(path);
         
-        // If still no component found, try '/home' or fallback to home component directly
-        if (!component && path !== '/home' && path !== '/') {
+        // If no component found, try fallback to home
+        if (!component) {
             console.log('Route not found:', path, 'Available routes:', Array.from(this.routes.keys()));
-            component = this.routes.get('/home') || this.routes.get('/');
-            this.currentRoute = '/home';
-            history.replaceState(null, '', '/home');
-        } else if (!component) {
-            console.error('No home route found! Available routes:', Array.from(this.routes.keys()));
-            return;
+            component = this.routes.get('/') || this.routes.get('/home');
+            this.currentRoute = '/';
+            history.replaceState(null, '', '/');
         } else {
             this.currentRoute = path;
         }
@@ -59,6 +65,8 @@ class Router {
         if (component) {
             this.renderComponent(component, this.currentRoute);
             this.updateNavigation(this.currentRoute);
+        } else {
+            console.error('No home route found! Available routes:', Array.from(this.routes.keys()));
         }
     }
 
@@ -82,7 +90,7 @@ class Router {
             item.classList.remove('current-page');
             
             const itemPath = item.getAttribute('data-path');
-            if (itemPath === path || (path === '/home' && itemPath === '/')) {
+            if (itemPath === path || (path === '/' && itemPath === '/')) {
                 item.classList.add('current-page');
             }
         });
@@ -90,7 +98,7 @@ class Router {
 
     updatePageMetadata(path) {
         const metadata = {
-            '/home': {
+            '/': {
                 title: 'PreVIT - 아이디어를 서비스로',
                 description: '아이디어로만 끝났던 일, 프레빗이 서비스로 만듭니다. 작고 사소하지만 꼭 필요했던 생각을 우리는 AI로 빠르게 구현합니다.',
                 ogUrl: 'https://previtlab.com'
@@ -112,7 +120,7 @@ class Router {
             }
         };
 
-        const meta = metadata[path] || metadata['/home'];
+        const meta = metadata[path] || metadata['/'];
         
         // Update document title
         document.title = meta.title;
@@ -139,7 +147,7 @@ class Router {
             case '/blog':
                 this.initBlogScripts();
                 break;
-            case '/home':
+            case '/':
                 this.initHomeScripts();
                 break;
         }
