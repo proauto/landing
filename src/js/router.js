@@ -39,8 +39,7 @@ class Router {
         
         // Handle root path
         if (path === '/') {
-            // Check if we have a component for '/' or '/home'
-            let component = this.routes.get('/') || this.routes.get('/home');
+            let component = this.routes.get('/');
             if (component) {
                 this.currentRoute = '/';
                 this.renderComponent(component, this.currentRoute);
@@ -55,9 +54,11 @@ class Router {
         // If no component found, try fallback to home
         if (!component) {
             console.log('Route not found:', path, 'Available routes:', Array.from(this.routes.keys()));
-            component = this.routes.get('/') || this.routes.get('/home');
-            this.currentRoute = '/';
-            history.replaceState(null, '', '/');
+            component = this.routes.get('/');
+            if (component) {
+                this.currentRoute = '/';
+                history.replaceState(null, '', '/');
+            }
         } else {
             this.currentRoute = path;
         }

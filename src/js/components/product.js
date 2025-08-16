@@ -279,7 +279,7 @@ export function ProductComponent() {
         <section class="product-main-section">
             <div class="product-container">
                 <div class="product-box" id="hyugepick-box">
-                    <img src="./assets/service_hyugepick.png" alt="HyugePick Service" class="product-box-bg">
+                    <img src="/assets/service_hyugepick.png" alt="HyugePick Service" class="product-box-bg">
                     <div class="product-content">
                         <div class="product-title">HyugePICK</div>
                         <div class="product-subtitle">휴게픽 : 지금 나에게 딱 맞는 휴게소</div>
@@ -290,19 +290,19 @@ export function ProductComponent() {
                         </div>
                         <div class="product-buttons">
                             <a href="javascript:void(0)" class="product-button">
-                                <img src="./assets/product_internet.png" alt="Internet">
+                                <img src="/assets/product_internet.png" alt="Internet">
                             </a>
                             <a href="javascript:void(0)" class="product-button">
-                                <img src="./assets/product_apple.png" alt="Apple">
+                                <img src="/assets/product_apple.png" alt="Apple">
                             </a>
                             <a href="javascript:void(0)" class="product-button">
-                                <img src="./assets/product_google.png" alt="Google">
+                                <img src="/assets/product_google.png" alt="Google">
                             </a>
                         </div>
                     </div>
                 </div>
                 <div class="product-box" id="rrobot-box">
-                    <img src="./assets/service_rrobot.png" alt="RRobot Service" class="product-box-bg">
+                    <img src="/assets/service_rrobot.png" alt="RRobot Service" class="product-box-bg">
                     <div class="product-content">
                         <div class="product-title">R-Robot</div>
                         <div class="product-subtitle">알로봇 R-Robot : 성장형 AI로봇 일지</div>
@@ -313,16 +313,16 @@ export function ProductComponent() {
                         </div>
                         <div class="product-buttons">
                             <a href="javascript:void(0)" class="product-button">
-                                <img src="./assets/product_insta.png" alt="Instagram">
+                                <img src="/assets/product_insta.png" alt="Instagram">
                             </a>
                             <a href="https://www.youtube.com/@알로봇R" target="_blank" class="product-button">
-                                <img src="./assets/product_youtube.png" alt="YouTube">
+                                <img src="/assets/product_youtube.png" alt="YouTube">
                             </a>
                         </div>
                     </div>
                 </div>
                 <div class="product-box" id="momcheck-box">
-                    <img src="./assets/service_momcheck.png" alt="MomCheck Service" class="product-box-bg">
+                    <img src="/assets/service_momcheck.png" alt="MomCheck Service" class="product-box-bg">
                     <div class="product-content">
                         <div class="product-title">MomCheck</div>
                         <div class="product-subtitle">임신 체중 증가 계산기 : 맘체크 MomCheck</div>
@@ -333,13 +333,13 @@ export function ProductComponent() {
                         </div>
                         <div class="product-buttons">
                             <a href="https://www.momcheck.kr/" target="_blank" class="product-button">
-                                <img src="./assets/product_internet.png" alt="Internet">
+                                <img src="/assets/product_internet.png" alt="Internet">
                             </a>
                             <a href="javascript:void(0)" class="product-button">
-                                <img src="./assets/product_apple.png" alt="Apple">
+                                <img src="/assets/product_apple.png" alt="Apple">
                             </a>
                             <a href="javascript:void(0)" class="product-button">
-                                <img src="./assets/product_google.png" alt="Google">
+                                <img src="/assets/product_google.png" alt="Google">
                             </a>
                         </div>
                     </div>

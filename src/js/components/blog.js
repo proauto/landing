@@ -275,7 +275,7 @@ export function BlogComponent() {
                 <div class="blog-posts" id="blogPosts">
                     <!-- Sample Posts -->
                     <a href="javascript:void(0)" class="blog-post" data-category="driving" onclick="alert('블로그 상세 페이지는 SPA 라우팅으로 구현 예정입니다.')">
-                        <img src="./assets/service_hyugepick.png" alt="휴게소 가이드" class="post-image">
+                        <img src="/assets/service_hyugepick.png" alt="휴게소 가이드" class="post-image">
                         <div class="post-content">
                             <span class="post-category">운전 & 여행</span>
                             <h3 class="post-title">장거리 운전 시 꼭 알아야 할 휴게소 활용법</h3>
@@ -288,7 +288,7 @@ export function BlogComponent() {
                     </a>
                     
                     <a href="javascript:void(0)" class="blog-post" data-category="pregnancy" onclick="alert('블로그 상세 페이지는 SPA 라우팅으로 구현 예정입니다.')">
-                        <img src="./assets/service_momcheck.png" alt="임신 체중 관리" class="post-image">
+                        <img src="/assets/service_momcheck.png" alt="임신 체중 관리" class="post-image">
                         <div class="post-content">
                             <span class="post-category">임신 & 출산</span>
                             <h3 class="post-title">임신 중 건강한 체중 관리를 위한 실전 가이드</h3>
@@ -301,7 +301,7 @@ export function BlogComponent() {
                     </a>
                     
                     <a href="javascript:void(0)" class="blog-post" data-category="driving" onclick="alert('블로그 상세 페이지는 SPA 라우팅으로 구현 예정입니다.')">
-                        <img src="./assets/중간이미지.png" alt="안전 운전" class="post-image">
+                        <img src="/assets/중간이미지.png" alt="안전 운전" class="post-image">
                         <div class="post-content">
                             <span class="post-category">운전 & 여행</span>
                             <h3 class="post-title">겨울철 안전 운전을 위한 5가지 필수 체크리스트</h3>
@@ -314,7 +314,7 @@ export function BlogComponent() {
                     </a>
                     
                     <a href="javascript:void(0)" class="blog-post" data-category="pregnancy" onclick="alert('블로그 상세 페이지는 SPA 라우팅으로 구현 예정입니다.')">
-                        <img src="./assets/민아.png" alt="임신 영양" class="post-image">
+                        <img src="/assets/민아.png" alt="임신 영양" class="post-image">
                         <div class="post-content">
                             <span class="post-category">임신 & 출산</span>
                             <h3 class="post-title">임신 초기 꼭 필요한 영양소와 추천 음식</h3>
@@ -327,7 +327,7 @@ export function BlogComponent() {
                     </a>
                     
                     <a href="javascript:void(0)" class="blog-post" data-category="tips" onclick="alert('블로그 상세 페이지는 SPA 라우팅으로 구현 예정입니다.')">
-                        <img src="./assets/접근성.png" alt="기술 팁" class="post-image">
+                        <img src="/assets/접근성.png" alt="기술 팁" class="post-image">
                         <div class="post-content">
                             <span class="post-category">생활 팁</span>
                             <h3 class="post-title">일상을 편리하게 만드는 스마트 기술 활용법</h3>
@@ -340,7 +340,7 @@ export function BlogComponent() {
                     </a>
                     
                     <a href="javascript:void(0)" class="blog-post" data-category="driving" onclick="alert('블로그 상세 페이지는 SPA 라우팅으로 구현 예정입니다.')">
-                        <img src="./assets/빠른실행.png" alt="휴게소 맛집" class="post-image">
+                        <img src="/assets/빠른실행.png" alt="휴게소 맛집" class="post-image">
                         <div class="post-content">
                             <span class="post-category">운전 & 여행</span>
                             <h3 class="post-title">전국 휴게소 숨은 맛집 BEST 10</h3>
