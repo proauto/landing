@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PreVIT - 아이디어를 서비스로</title>
+    <script>
+        // GitHub Pages SPA fallback
+        // Redirect all 404s to index.html with the path as a query parameter
+        const path = window.location.pathname;
+        const search = window.location.search;
+        
+        // Store the current path in sessionStorage for the router to handle
+        sessionStorage.setItem('spa-path', path + search);
+        
+        // Redirect to index.html
+        window.location.replace('/');
+    </script>
+</head>
+<body>
+    <div style="text-align: center; padding: 50px; font-family: 'Noto Sans KR', sans-serif;">
+        <h1>페이지를 이동 중입니다...</h1>
+        <p>잠시만 기다려주세요.</p>
+    </div>
+</body>
+</html>

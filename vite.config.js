@@ -10,11 +10,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'src/index.html'),
-        brand: resolve(__dirname, 'src/brand.html'),
-        product: resolve(__dirname, 'src/product.html'),
-        blog: resolve(__dirname, 'src/blog.html'),
-        admin: resolve(__dirname, 'src/admin.html'),
-        'blog-driving-rest-area-guide': resolve(__dirname, 'src/blog/driving-rest-area-guide.html')
+        404: resolve(__dirname, 'src/404.html'),
+        admin: resolve(__dirname, 'src/admin.html')
       }
     },
     assetsDir: 'assets'
@@ -22,7 +19,14 @@ export default defineConfig({
   publicDir: '../public',
   server: {
     port: 3000,
-    open: true
+    open: true,
+    historyApiFallback: {
+      // SPA fallback for development
+      rewrites: [
+        { from: /^\/admin/, to: '/admin.html' },
+        { from: /.*/, to: '/index.html' }
+      ]
+    }
   },
   define: {
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
