@@ -28,7 +28,8 @@ class Router {
     }
 
     navigate(path) {
-        if (this.currentRoute !== path) {
+        // Always allow navigation to home route, even if already on home
+        if (this.currentRoute !== path || path === '/') {
             history.pushState(null, '', path);
             this.handleRoute(path);
         }
