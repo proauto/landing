@@ -21,23 +21,20 @@
     overflow: visible;
 }
 
-/* Style the entire logo with CSS pseudo-elements to simulate Pre/VIT styling */
+/* Simple, reliable logo styling */
 .header-logo {
     position: absolute;
     left: 320px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 24px; /* Restore font size for proper click area */
+    font-size: 24px;
     color: #0001D9;
     text-decoration: none;
     transition: opacity 0.3s ease;
-    display: inline-block; /* Better for click area */
+    display: block;
     z-index: 1002; /* Higher than nav items */
     top: 50%;
     transform: translateY(-50%);
-    min-width: 80px; /* Ensure minimum click area */
-    min-height: 30px; /* Ensure minimum click area */
-    line-height: 30px;
-    text-indent: -9999px; /* Hide text while keeping dimensions */
+    padding: 10px; /* Add padding for larger click area */
     border: 2px solid red; /* DEBUGGING: Show actual click area */
     background: rgba(255, 0, 0, 0.1); /* DEBUGGING: Highlight click area */
 }
@@ -46,24 +43,9 @@
     opacity: 0.8;
 }
 
-.header-logo::before {
-    content: "Pre";
-    font-weight: 300; /* Light */
-    font-size: 24px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    text-indent: 0; /* Reset text indent for pseudo-elements */
-}
-
-.header-logo::after {
-    content: "VIT";
-    font-weight: 600; /* SemiBold */
-    font-size: 24px;
-    position: absolute;
-    left: 30px; /* Position after "Pre" */
-    top: 0;
-    text-indent: 0; /* Reset text indent for pseudo-elements */
+.header-logo .logo-text {
+    font-weight: 400;
+    pointer-events: none; /* Prevent span from blocking clicks */
 }
 
 .header-nav-wrapper {
