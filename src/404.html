@@ -13,8 +13,9 @@
         // Store the current path in sessionStorage for the router to handle
         sessionStorage.setItem('spa-path', path + search);
         
-        // Redirect to index.html
-        window.location.replace('/');
+        // Redirect to index.html (handle both root and subdirectory deployment)
+        const basePath = window.location.pathname.includes('/landing/') ? '/landing/' : '/';
+        window.location.replace(basePath);
     </script>
 </head>
 <body>

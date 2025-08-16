@@ -55,8 +55,13 @@ export function initNavigation() {
         positionIndicator();
     });
     
-    // Handle navigation clicks
+    // Handle navigation clicks - only for items without data-path (legacy support)
     navItems.forEach(item => {
+        // Skip items that have data-path attribute (handled by router)
+        if (item.hasAttribute('data-path')) {
+            return;
+        }
+        
         item.addEventListener('click', function(e) {
             e.preventDefault();
             const href = this.getAttribute('href');

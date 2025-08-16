@@ -4,6 +4,42 @@ class Router {
         this.routes = new Map();
         this.currentRoute = null;
         this.initialized = false;
+        
+        // Detect base path for GitHub Pages deployment
+        this.basePath = this.getBasePath();
+    }
+    
+    getBasePath() {
+        // Check if deployed on GitHub Pages with subdirectory
+        const path = window.location.pathname;
+        if (path.includes('/landing/')) {
+            return '/landing';
+        }
+        return '';
+    }
+    
+    normalizePathForRouting(fullPath) {
+        // Remove base path for internal routing
+        if (this.basePath && fullPath.startsWith(this.basePath)) {
+            fullPath = fullPath.substring(this.basePath.length);
+        }
+        
+        // Ensure path starts with /
+        if (!fullPath.startsWith('/')) {
+            fullPath = '/' + fullPath;
+        }
+        
+        // Handle empty path as home
+        if (fullPath === '/') {
+            return '/';
+        }
+        
+        return fullPath;
+    }
+    
+    getFullPath(routePath) {
+        // Add base path for browser navigation
+        return this.basePath + routePath;
     }
 
     init() {
@@ -13,12 +49,14 @@ class Router {
         
         // Handle browser back/forward buttons
         window.addEventListener('popstate', (e) => {
-            this.handleRoute(window.location.pathname);
+            const normalizedPath = this.normalizePathForRouting(window.location.pathname);
+            this.handleRoute(normalizedPath);
         });
 
         // Handle initial page load
-        console.log('Initial route:', window.location.pathname);
-        this.handleRoute(window.location.pathname);
+        const currentPath = this.normalizePathForRouting(window.location.pathname);
+        console.log('Initial route:', window.location.pathname, '-> normalized:', currentPath);
+        this.handleRoute(currentPath);
         
         this.initialized = true;
     }
@@ -28,9 +66,16 @@ class Router {
     }
 
     navigate(path) {
+        console.log('Navigating to:', path, 'from:', this.currentRoute);
+        
         // Always allow navigation to home route, even if already on home
+        // This ensures logo clicks always work
         if (this.currentRoute !== path || path === '/') {
-            history.pushState(null, '', path);
+            const fullPath = this.getFullPath(path);
+            history.pushState(null, '', fullPath);
+            this.handleRoute(path);
+        } else if (path === '/') {
+            // Force refresh home page content even if already on home
             this.handleRoute(path);
         }
     }
@@ -58,7 +103,8 @@ class Router {
             component = this.routes.get('/');
             if (component) {
                 this.currentRoute = '/';
-                history.replaceState(null, '', '/');
+                const fullPath = this.getFullPath('/');
+                history.replaceState(null, '', fullPath);
             }
         } else {
             this.currentRoute = path;
@@ -221,10 +267,17 @@ class Router {
 
 // Handle navigation clicks
 document.addEventListener('click', (e) => {
-    if (e.target.matches('a[data-path]')) {
+    // Handle elements with data-path attribute (logo, nav items)
+    if (e.target.matches('a[data-path]') || e.target.closest('a[data-path]')) {
         e.preventDefault();
-        const path = e.target.getAttribute('data-path');
-        if (window.router) {
+        e.stopPropagation();
+        
+        const targetElement = e.target.matches('a[data-path]') ? e.target : e.target.closest('a[data-path]');
+        const path = targetElement.getAttribute('data-path');
+        
+        console.log('Click detected on element with data-path:', path);
+        
+        if (window.router && path) {
             window.router.navigate(path);
         }
     }
