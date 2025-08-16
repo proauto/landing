@@ -12,7 +12,9 @@ export default defineConfig({
         main: resolve(__dirname, 'src/index.html'),
         brand: resolve(__dirname, 'src/brand.html'),
         product: resolve(__dirname, 'src/product.html'),
-        admin: resolve(__dirname, 'src/admin.html')
+        blog: resolve(__dirname, 'src/blog.html'),
+        admin: resolve(__dirname, 'src/admin.html'),
+        'blog-driving-rest-area-guide': resolve(__dirname, 'src/blog/driving-rest-area-guide.html')
       }
     },
     assetsDir: 'assets'
