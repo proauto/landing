@@ -34,6 +34,15 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Make router globally accessible for 404 fallback
         window.router = router;
+        
+        // Handle any SPA fallback path that was stored before router loaded
+        if (window.spaFallbackPath) {
+            console.log('Processing SPA fallback path:', window.spaFallbackPath);
+            setTimeout(() => {
+                router.navigate(window.spaFallbackPath);
+                delete window.spaFallbackPath;
+            }, 50);
+        }
     });
     
     // Initialize existing components for compatibility

@@ -71,19 +71,16 @@
         </div>
     </section>
 
-    <script type="module" src="/js/main.js"></script>
     <script type="module">
-        // Handle SPA fallback from 404.html
+        // Handle SPA fallback from 404.html BEFORE main.js loads
         const storedPath = sessionStorage.getItem('spa-path');
         if (storedPath) {
             sessionStorage.removeItem('spa-path');
-            // Use the router to handle the stored path
-            setTimeout(() => {
-                if (window.router) {
-                    window.router.navigate(storedPath);
-                }
-            }, 100);
+            console.log('SPA fallback detected, storing path:', storedPath);
+            // Store for router to handle after it's initialized
+            window.spaFallbackPath = storedPath;
         }
     </script>
+    <script type="module" src="/js/main.js"></script>
 </body>
 </html>

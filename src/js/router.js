@@ -265,22 +265,38 @@ class Router {
     }
 }
 
-// Handle navigation clicks
+// Handle navigation clicks with enhanced debugging
 document.addEventListener('click', (e) => {
+    console.log('Click event detected on:', e.target, 'Router available:', !!window.router);
+    
     // Handle elements with data-path attribute (logo, nav items)
-    if (e.target.matches('a[data-path]') || e.target.closest('a[data-path]')) {
+    const targetWithDataPath = e.target.matches('a[data-path]') ? e.target : e.target.closest('a[data-path]');
+    
+    if (targetWithDataPath) {
+        console.log('Found element with data-path:', targetWithDataPath);
         e.preventDefault();
         e.stopPropagation();
         
-        const targetElement = e.target.matches('a[data-path]') ? e.target : e.target.closest('a[data-path]');
-        const path = targetElement.getAttribute('data-path');
-        
-        console.log('Click detected on element with data-path:', path);
+        const path = targetWithDataPath.getAttribute('data-path');
+        console.log('Navigating to path:', path, 'Router ready:', !!window.router);
         
         if (window.router && path) {
+            console.log('Calling router.navigate with path:', path);
             window.router.navigate(path);
+        } else if (!window.router) {
+            console.warn('Router not available yet, storing path for later:', path);
+            // Store path for when router becomes available
+            window.pendingNavigation = path;
+            // Try again after a short delay
+            setTimeout(() => {
+                if (window.router && window.pendingNavigation) {
+                    console.log('Router now available, navigating to stored path:', window.pendingNavigation);
+                    window.router.navigate(window.pendingNavigation);
+                    delete window.pendingNavigation;
+                }
+            }, 100);
         }
     }
-});
+}, true); // Use capture phase to ensure we catch the event first
 
 export default Router;
