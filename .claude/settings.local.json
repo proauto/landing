@@ -14,7 +14,8 @@
       "Bash(npm run build:*)",
       "Bash(npm run dev:*)",
       "Bash(touch:*)",
-      "WebFetch(domain:www.heumtax.com)"
+      "WebFetch(domain:www.heumtax.com)",
+      "Bash(cp:*)"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"

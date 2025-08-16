@@ -4,41 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PreVIT - 아이디어를 서비스로</title>
-    <meta http-equiv="refresh" content="0; url=./dist/index.html">
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background: #f8fafc;
-        }
-        .loading {
-            text-align: center;
-            color: #0001D9;
-        }
-        .spinner {
-            width: 40px;
-            height: 40px;
-            margin: 20px auto;
-            border: 4px solid #e2e8f0;
-            border-top: 4px solid #0001D9;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
+    <meta name="description" content="아이디어로만 끝났던 일, 프레빗이 서비스로 만듭니다. 작고 사소하지만 꼭 필요했던 생각을 우리는 AI로 빠르게 구현합니다.">
+    <meta name="keywords" content="아이디어, 컨설팅, AI, 서비스 개발, PreVIT">
+    
+    <!-- Open Graph Meta Tags for Social Media Preview -->
+    <meta property="og:title" content="PreVIT - 아이디어를 서비스로">
+    <meta property="og:description" content="아이디어로만 끝났던 일, 프레빗이 서비스로 만듭니다. 작고 사소하지만 꼭 필요했던 생각을 우리는 AI로 빠르게 구현합니다.">
+    <meta property="og:image" content="https://previtlab.com/assets/프리뷰.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://previtlab.com">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="PreVIT">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PreVIT - 아이디어를 서비스로">
+    <meta name="twitter:description" content="아이디어로만 끝났던 일, 프레빗이 서비스로 만듭니다. 작고 사소하지만 꼭 필요했던 생각을 우리는 AI로 빠르게 구현합니다.">
+    <meta name="twitter:image" content="https://previtlab.com/assets/프리뷰.png">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta name="csrf-token" content="generated-csrf-token-here">
+    
+    <link rel="icon" type="image/png" href="./assets/favi.png">
+    <link rel="shortcut icon" type="image/png" href="./assets/favi.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+  <script type="module" crossorigin src="/assets/main-ICYo6joB.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-C-t7g1Sz.css">
 </head>
 <body>
-    <div class="loading">
-        <div class="spinner"></div>
-        <p>PreVIT 사이트로 이동 중...</p>
-        <p><a href="./dist/index.html">자동으로 이동되지 않으면 여기를 클릭하세요</a></p>
-    </div>
+    <!-- Header Navigation -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="javascript:void(0)" class="header-logo" data-path="/">
+                <span class="logo-pre">Pre</span><span class="logo-vit">VIT</span>
+            </a>
+            <div class="header-nav-wrapper">
+                <a href="javascript:void(0)" class="nav-item" data-path="/brand">BRAND</a>
+                <a href="javascript:void(0)" class="nav-item" data-path="/product">PRODUCT</a>
+                <a href="javascript:void(0)" class="nav-item" data-path="/blog">BLOG</a>
+            </div>
+        </div>
+        <div class="nav-indicator"></div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="main-content">
+        <!-- Content will be dynamically loaded here -->
+    </main>
+
+    <!-- Footer Section -->
+    <section id="footer" class="footer-section">
+        <div class="container">
+            <div class="footer-content">
+                <p class="company-name">프레빗랩</p>
+                <p class="ceo-info"><span class="bold-label">대표</span> 서민아</p>
+                <p class="contact-info"><span class="bold-label">문의</span> previtlab@gmail.com</p>
+            </div>
+        </div>
+    </section>
+
 </body>
 </html>
