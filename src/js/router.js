@@ -265,15 +265,26 @@ class Router {
     }
 }
 
-// Handle navigation clicks with enhanced debugging
+// Handle navigation clicks with enhanced debugging and span support
 document.addEventListener('click', (e) => {
-    console.log('Click event detected on:', e.target, 'Router available:', !!window.router);
+    console.log('Click event detected on:', e.target.tagName, e.target.className, 'Router available:', !!window.router);
     
     // Handle elements with data-path attribute (logo, nav items)
-    const targetWithDataPath = e.target.matches('a[data-path]') ? e.target : e.target.closest('a[data-path]');
+    // Check target itself, its parent, and walk up the DOM tree
+    let targetWithDataPath = null;
+    let currentElement = e.target;
+    
+    // Walk up the DOM tree to find an element with data-path
+    while (currentElement && currentElement !== document) {
+        if (currentElement.hasAttribute && currentElement.hasAttribute('data-path')) {
+            targetWithDataPath = currentElement;
+            break;
+        }
+        currentElement = currentElement.parentElement;
+    }
     
     if (targetWithDataPath) {
-        console.log('Found element with data-path:', targetWithDataPath);
+        console.log('Found element with data-path:', targetWithDataPath.tagName, targetWithDataPath.className);
         e.preventDefault();
         e.stopPropagation();
         
@@ -296,6 +307,8 @@ document.addEventListener('click', (e) => {
                 }
             }, 100);
         }
+    } else {
+        console.log('No data-path element found in click hierarchy');
     }
 }, true); // Use capture phase to ensure we catch the event first
 

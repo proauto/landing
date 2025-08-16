@@ -43,6 +43,7 @@
     font-weight: 300; /* Light */
     font-size: 24px !important;
     color: #0001D9 !important;
+    pointer-events: none; /* Allow clicks to pass through to parent */
 }
 
 .header-logo .logo-vit {
@@ -50,6 +51,7 @@
     font-weight: 600; /* SemiBold */
     font-size: 24px !important;
     color: #0001D9 !important;
+    pointer-events: none; /* Allow clicks to pass through to parent */
 }
 
 .header-nav-wrapper {
