@@ -60,7 +60,7 @@ export default class Router {
 
             // Execute post-render tasks
             if (this.onRender) {
-                this.onRender(normalizedPath);
+                this.onRender(this.currentRoute);
             }
         } else {
             // If on a page without #main-content (e.g., direct brand.html load), 
