@@ -1,0 +1,208 @@
+/* Header Styles */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 1);
+    height: 60px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+/* Blog page specific header - transparent background */
+body.blog-page .main-header {
+    background: transparent !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: visible;
+}
+
+/* Brand logo styling - both classes for compatibility */
+.brand-logo-new,
+.brand-logo-final {
+    position: absolute !important;
+    left: 100px !important; /* Positioned 1/3 more from left edge */
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 600 !important; /* SemiBold */
+    font-size: 24px !important; /* Original size restored */
+    color: #0001D9 !important;
+    text-decoration: none !important;
+    transition: opacity 0.3s ease !important;
+    display: block !important;
+    z-index: 9999 !important; /* Very high z-index */
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    padding: 15px !important; /* Large padding for easy clicking */
+    width: auto !important;
+    height: auto !important;
+}
+
+/* Mobile responsive styles for brand logo */
+@media (max-width: 1024px) {
+    .brand-logo-new,
+    .brand-logo-final {
+        left: 30px !important; /* Proportional mobile spacing */
+        font-size: 18px !important; /* Original tablet size restored */
+    }
+}
+
+@media (max-width: 768px) {
+    .brand-logo-new,
+    .brand-logo-final {
+        left: 15px !important; /* Mirror nav right: 15px */
+        font-size: 14px !important; /* Match mobile nav items */
+        padding: 10px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .brand-logo-new,
+    .brand-logo-final {
+        left: 10px !important; /* Mirror nav right: 10px */
+        font-size: 12px !important; /* Match small mobile nav items */
+        padding: 8px !important;
+    }
+}
+
+.brand-logo-new:hover,
+.brand-logo-final:hover {
+    opacity: 0.8 !important;
+}
+
+.brand-logo-new .brand-text,
+.brand-logo-final .brand-text {
+    font-weight: 600 !important; /* SemiBold */
+    pointer-events: none !important; /* Prevent span from blocking clicks */
+    color: #0001D9 !important;
+}
+
+.header-nav-wrapper {
+    position: absolute;
+    right: 100px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    z-index: 1001;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.nav-item {
+    position: relative;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: #0001D9 !important;
+    transition: all 0.3s ease;
+}
+
+.nav-item:hover,
+.nav-item.current-page {
+    opacity: 0.7;
+}
+
+.nav-item.clicked {
+    transform: scale(0.95);
+}
+
+.nav-indicator {
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    background: #0001D9;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    pointer-events: none; /* Don't block clicks on other elements */
+}
+
+.nav-indicator.active {
+    opacity: 1;
+}
+
+/* Tablet styles */
+@media (max-width: 1024px) {
+    .header-logo {
+        left: 40px;
+    }
+    
+    .header-nav-wrapper {
+        right: 30px;
+        gap: 25px;
+    }
+    
+    .header-logo .logo-pre,
+    .header-logo .logo-vit {
+        font-size: 20px !important;
+    }
+    
+    .nav-item {
+        font-size: 18px;
+        padding: 10px 8px;
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .main-header {
+        height: 56px;
+    }
+    
+    .header-logo {
+        left: 20px;
+    }
+    
+    .header-nav-wrapper {
+        right: 15px;
+        gap: 15px;
+    }
+    
+    .header-logo .logo-pre,
+    .header-logo .logo-vit {
+        font-size: 18px !important;
+    }
+    
+    .nav-item {
+        font-size: 14px;
+        padding: 12px 6px;
+        min-height: 44px; /* Touch-friendly size */
+        display: flex;
+        align-items: center;
+    }
+}
+
+/* Small mobile styles */
+@media (max-width: 480px) {
+    .header-nav-wrapper {
+        gap: 10px;
+        right: 10px;
+    }
+    
+    .header-logo .logo-pre,
+    .header-logo .logo-vit {
+        font-size: 16px !important;
+    }
+    
+    .nav-item {
+        font-size: 12px;
+        padding: 10px 4px;
+        min-height: 44px; /* Touch-friendly size */
+    }
+    
+    /* Prevent horizontal overflow on very small screens */
+    .header-container {
+        padding: 0 5px;
+    }
+}

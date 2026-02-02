@@ -1,0 +1,46 @@
+# PreVIT LAB 로봇 크롤링 규칙
+# 생성일: 2025-08-26
+# Google Search Console 등록 완료
+
+User-agent: *
+Allow: /
+Allow: /blog/
+Allow: /brand
+Allow: /product
+Allow: /assets/
+Allow: /app-ads.txt
+
+# 관리자 페이지 차단
+Disallow: /blog-admin
+Disallow: /admin
+Disallow: /api/
+Disallow: /.env
+Disallow: /scripts/
+Disallow: /tests/
+
+# 특정 파일 타입 허용
+Allow: *.css
+Allow: *.js
+Allow: *.png
+Allow: *.jpg
+Allow: *.jpeg
+Allow: *.gif
+Allow: *.webp
+Allow: *.svg
+
+# 사이트맵 위치
+Sitemap: https://previtlab.com/sitemap.xml
+
+# 크롤링 지연 (서버 부하 방지)
+Crawl-delay: 1
+
+# 구글봇 특별 설정
+User-agent: Googlebot
+Allow: /
+Allow: /app-ads.txt
+Crawl-delay: 0.5
+
+# 빙봇 설정
+User-agent: bingbot
+Allow: /
+Crawl-delay: 1

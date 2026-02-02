@@ -1,0 +1,18 @@
+# This file is kept for reference but not used in Railway deployment
+# Railway uses full file system access, no ignore rules needed
+
+# Development and local files
+.env.local
+.claude
+
+# Large asset directories (Railway can serve these directly)
+# assets/
+# trash/
+
+# Development logs and temp files
+*.log
+.DS_Store
+Thumbs.db
+
+# Note: Railway deployment doesn't require file exclusions
+# All files are available to the running application

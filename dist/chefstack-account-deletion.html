@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChefStack 계정 삭제 - Account Deletion</title>
+    <meta name="description" content="ChefStack 앱 계정 삭제 요청 페이지입니다. Google Play 정책에 따라 사용자 데이터와 계정을 안전하게 삭제할 수 있습니다.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 40px 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            color: #764ba2;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f093fb;
+        }
+
+        .section p, .section li {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .section ul {
+            list-style-position: inside;
+            padding-left: 20px;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .warning-box strong {
+            color: #856404;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .info-box {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .info-box strong {
+            color: #0c5460;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .form-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .form-group input[type="email"],
+        .form-group input[type="text"],
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #764ba2;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .required {
+            color: #dc3545;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            margin: 15px 0;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 10px;
+            margin-top: 4px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .checkbox-group label {
+            flex: 1;
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .submit-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .message {
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .message.success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .message.error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .form-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🍳 ChefStack 계정 삭제</h1>
+            <p class="subtitle">Account Deletion Request</p>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2>📋 계정 삭제 정책 | Account Deletion Policy</h2>
+                <p>ChefStack은 Google Play의 사용자 데이터 정책에 따라 사용자가 계정과 데이터를 완전히 삭제할 수 있는 권리를 보장합니다.</p>
+                <p>We ensure your right to completely delete your account and data in compliance with Google Play's User Data Policy.</p>
+            </div>
+
+            <div class="section">
+                <h2>🗑️ 삭제되는 데이터 | Data to be Deleted</h2>
+                <p>계정 삭제 시 다음 데이터가 영구적으로 삭제됩니다:</p>
+                <ul>
+                    <li><strong>개인 정보</strong>: 이름, 이메일 주소, 프로필 사진</li>
+                    <li><strong>레시피 데이터</strong>: 저장된 레시피, 즐겨찾기, 레시피 노트</li>
+                    <li><strong>사용 기록</strong>: 검색 기록, 활동 로그, 앱 설정</li>
+                    <li><strong>인증 정보</strong>: 로그인 토큰, 세션 데이터</li>
+                </ul>
+                <br>
+                <p>The following data will be permanently deleted:</p>
+                <ul>
+                    <li><strong>Personal Information</strong>: Name, email address, profile photo</li>
+                    <li><strong>Recipe Data</strong>: Saved recipes, favorites, recipe notes</li>
+                    <li><strong>Usage History</strong>: Search history, activity logs, app settings</li>
+                    <li><strong>Authentication</strong>: Login tokens, session data</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <strong>ℹ️ 보관되는 데이터 | Retained Data</strong>
+                <p>법적 의무 또는 사기 방지를 위해 다음 데이터는 제한된 기간 동안 익명화되어 보관될 수 있습니다:</p>
+                <ul style="margin-top: 10px;">
+                    <li>거래 기록 (결제 관련 법적 의무)</li>
+                    <li>악용 방지를 위한 익명화된 로그 (최대 90일)</li>
+                </ul>
+                <p style="margin-top: 10px;">For legal compliance or fraud prevention, the following data may be retained in anonymized form for a limited period:</p>
+                <ul style="margin-top: 10px;">
+                    <li>Transaction records (legal obligations)</li>
+                    <li>Anonymized logs for abuse prevention (max 90 days)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>⏱️ 삭제 프로세스 | Deletion Process</h2>
+                <ol style="padding-left: 20px;">
+                    <li><strong>요청 제출</strong>: 아래 양식을 작성하여 제출 | Submit the form below</li>
+                    <li><strong>확인 이메일</strong>: 24시간 내 확인 이메일 발송 | Confirmation email within 24 hours</li>
+                    <li><strong>검토 기간</strong>: 3~5 영업일 소요 | Review period: 3-5 business days</li>
+                    <li><strong>완료 통보</strong>: 삭제 완료 시 최종 확인 이메일 발송 | Final confirmation email upon completion</li>
+                </ol>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ 중요 안내 | Important Notice</strong>
+                <p>계정 삭제는 <strong>영구적이며 되돌릴 수 없습니다</strong>. 삭제된 데이터는 복구할 수 없으니 신중하게 결정해 주세요.</p>
+                <p>Account deletion is <strong>permanent and irreversible</strong>. Deleted data cannot be recovered. Please make your decision carefully.</p>
+            </div>
+
+            <div class="form-section">
+                <h2 style="margin-bottom: 20px; color: #764ba2;">📝 계정 삭제 요청 양식 | Deletion Request Form</h2>
+                <form id="deletionForm">
+                    <div class="form-group">
+                        <label for="email">이메일 주소 | Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required placeholder="your@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="username">사용자 이름 (선택사항) | Username (Optional)</label>
+                        <input type="text" id="username" name="username" placeholder="ChefStack username">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reason">삭제 사유 (선택사항) | Reason for Deletion (Optional)</label>
+                        <textarea id="reason" name="reason" placeholder="개인정보 보호, 앱 사용 중단 등 사유를 간단히 작성해주세요.&#10;Please briefly describe your reason (e.g., privacy concerns, no longer using the app)"></textarea>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="confirm" name="confirm" required>
+                        <label for="confirm">
+                            <strong>본인은 계정 삭제가 영구적이며 되돌릴 수 없음을 이해하고 동의합니다.</strong><br>
+                            <strong>I understand and agree that account deletion is permanent and irreversible.</strong>
+                        </label>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="dataConsent" name="dataConsent" required>
+                        <label for="dataConsent">
+                            <strong>본인의 모든 개인 데이터 및 사용 기록이 삭제됨을 확인했습니다.</strong><br>
+                            <strong>I confirm that all my personal data and usage history will be deleted.</strong>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        🗑️ 계정 삭제 요청 제출 | Submit Deletion Request
+                    </button>
+
+                    <div id="message" class="message"></div>
+                </form>
+            </div>
+
+            <div class="section" style="margin-top: 40px;">
+                <h2>❓ 추가 문의 | Contact Us</h2>
+                <p>계정 삭제와 관련하여 문의사항이 있으시면 아래로 연락 주세요:</p>
+                <p>For questions about account deletion, please contact:</p>
+                <ul>
+                    <li>📧 Email: <a href="mailto:previtlab@gmail.com" style="color: #764ba2;">previtlab@gmail.com</a></li>
+                    <li>🌐 Website: <a href="https://previtlab.com" style="color: #764ba2;">previtlab.com</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 PreVIT LAB. All rights reserved.</p>
+            <p>ChefStack는 Google Play의 사용자 데이터 정책을 준수합니다.</p>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('deletionForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const messageDiv = document.getElementById('message');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Reset message
+            messageDiv.style.display = 'none';
+            messageDiv.className = 'message';
+            messageDiv.textContent = '';
+
+            // Get form data
+            const formData = {
+                email: document.getElementById('email').value.trim(),
+                username: document.getElementById('username').value.trim(),
+                reason: document.getElementById('reason').value.trim(),
+                confirm: document.getElementById('confirm').checked,
+                dataConsent: document.getElementById('dataConsent').checked,
+                timestamp: new Date().toISOString(),
+                appName: 'ChefStack'
+            };
+
+            // Validation
+            if (!formData.email) {
+                showMessage('이메일 주소를 입력해주세요. | Please enter your email address.', 'error');
+                return;
+            }
+
+            if (!formData.confirm || !formData.dataConsent) {
+                showMessage('모든 확인 사항에 동의해주세요. | Please agree to all confirmations.', 'error');
+                return;
+            }
+
+            // Disable button during submission
+            submitBtn.disabled = true;
+            submitBtn.textContent = '⏳ 제출 중... | Submitting...';
+
+            try {
+                const response = await fetch('/api/chefstack/account-deletion', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    showMessage(
+                        '✅ 계정 삭제 요청이 성공적으로 제출되었습니다. 24시간 내에 확인 이메일을 보내드립니다.<br>' +
+                        '✅ Your account deletion request has been submitted successfully. You will receive a confirmation email within 24 hours.',
+                        'success'
+                    );
+                    form.reset();
+                } else {
+                    showMessage(
+                        `❌ 오류가 발생했습니다: ${result.error || 'Unknown error'}<br>` +
+                        `❌ An error occurred: ${result.error || 'Unknown error'}`,
+                        'error'
+                    );
+                }
+            } catch (error) {
+                console.error('Submission error:', error);
+                showMessage(
+                    '❌ 서버 연결에 실패했습니다. 잠시 후 다시 시도해주세요.<br>' +
+                    '❌ Failed to connect to server. Please try again later.',
+                    'error'
+                );
+            } finally {
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.textContent = '🗑️ 계정 삭제 요청 제출 | Submit Deletion Request';
+            }
+        });
+
+        function showMessage(text, type) {
+            messageDiv.innerHTML = text;
+            messageDiv.className = `message ${type}`;
+            messageDiv.style.display = 'block';
+            messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
+</body>
+</html>
