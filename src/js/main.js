@@ -27,6 +27,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
         console.log('Routes registered:', Array.from(router.routes.keys()));
 
+        // Set post-render hooks to re-initialize component logic
+        router.onRender = (path) => {
+            console.log('Route rendered:', path);
+            initNavigation();
+            initAnimations();
+            initContactForm();
+            initHeroSection();
+        };
+
         // Now initialize the router after routes are registered
         router.init();
 

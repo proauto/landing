@@ -4,6 +4,7 @@ export default class Router {
         this.routes = new Map();
         this.currentRoute = null;
         this.initialized = false;
+        this.onRender = null; // Callback after each render
         this.setupClickListener();
     }
 
@@ -56,6 +57,11 @@ export default class Router {
         if (mainContent) {
             mainContent.innerHTML = component();
             window.scrollTo(0, 0);
+
+            // Execute post-render tasks
+            if (this.onRender) {
+                this.onRender(normalizedPath);
+            }
         } else {
             // If on a page without #main-content (e.g., direct brand.html load), 
             // but navigating back to home or other, we might need a fallback.
