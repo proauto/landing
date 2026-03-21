@@ -393,35 +393,42 @@
             submitBtn.textContent = '⏳ 제출 중... | Submitting...';
 
             try {
-                const response = await fetch('/api/chefstack/account-deletion', {
+                const response = await fetch('https://formspree.io/f/xvzqqkao', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
+                        'Accept': 'application/json'
                     },
-                    body: JSON.stringify(formData)
+                    body: JSON.stringify({
+                        _subject: '[ChefStack] 계정 삭제 요청 - Account Deletion Request',
+                        appName: 'ChefStack',
+                        requestType: '계정 삭제 요청 (Account Deletion)',
+                        email: formData.email,
+                        username: formData.username || '(미입력)',
+                        reason: formData.reason || '(미입력)',
+                        timestamp: formData.timestamp
+                    })
                 });
-
-                const result = await response.json();
 
                 if (response.ok) {
                     showMessage(
-                        '✅ 계정 삭제 요청이 성공적으로 제출되었습니다. 24시간 내에 확인 이메일을 보내드립니다.<br>' +
-                        '✅ Your account deletion request has been submitted successfully. You will receive a confirmation email within 24 hours.',
+                        '계정 삭제 요청이 성공적으로 제출되었습니다. 24시간 내에 확인 이메일을 보내드립니다.<br>' +
+                        'Your account deletion request has been submitted successfully. You will receive a confirmation email within 24 hours.',
                         'success'
                     );
                     form.reset();
                 } else {
                     showMessage(
-                        `❌ 오류가 발생했습니다: ${result.error || 'Unknown error'}<br>` +
-                        `❌ An error occurred: ${result.error || 'Unknown error'}`,
+                        '오류가 발생했습니다. 잠시 후 다시 시도해주세요.<br>' +
+                        'An error occurred. Please try again later.',
                         'error'
                     );
                 }
             } catch (error) {
                 console.error('Submission error:', error);
                 showMessage(
-                    '❌ 서버 연결에 실패했습니다. 잠시 후 다시 시도해주세요.<br>' +
-                    '❌ Failed to connect to server. Please try again later.',
+                    '서버 연결에 실패했습니다. 이메일(previtlab@gmail.com)로 직접 요청해주세요.<br>' +
+                    'Failed to connect to server. Please send your request directly to previtlab@gmail.com.',
                     'error'
                 );
             } finally {
