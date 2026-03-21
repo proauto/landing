@@ -22,13 +22,19 @@
         // Redirect all 404s to index.html with the path as a query parameter
         const path = window.location.pathname;
         const search = window.location.search;
-        
-        // Store the current path in sessionStorage for the router to handle
-        sessionStorage.setItem('spa-path', path + search);
-        
-        // Redirect to index.html (handle both root and subdirectory deployment)
-        const basePath = window.location.pathname.includes('/landing/') ? '/landing/' : '/';
-        window.location.replace(basePath);
+
+        // Standalone pages - do not redirect (these are independent HTML files)
+        const standalonePrefix = ['/momcheck/', '/chefstack/'];
+        const isStandalone = standalonePrefix.some(p => path.startsWith(p));
+
+        if (!isStandalone) {
+            // Store the current path in sessionStorage for the router to handle
+            sessionStorage.setItem('spa-path', path + search);
+
+            // Redirect to index.html (handle both root and subdirectory deployment)
+            const basePath = path.includes('/landing/') ? '/landing/' : '/';
+            window.location.replace(basePath);
+        }
     </script>
 </head>
 <body>
