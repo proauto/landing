@@ -1,4 +1,4 @@
-(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const i of document.querySelectorAll('link[rel="modulepreload"]'))n(i);new MutationObserver(i=>{for(const s of i)if(s.type==="childList")for(const a of s.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&n(a)}).observe(document,{childList:!0,subtree:!0});function o(i){const s={};return i.integrity&&(s.integrity=i.integrity),i.referrerPolicy&&(s.referrerPolicy=i.referrerPolicy),i.crossOrigin==="use-credentials"?s.credentials="include":i.crossOrigin==="anonymous"?s.credentials="omit":s.credentials="same-origin",s}function n(i){if(i.ep)return;i.ep=!0;const s=o(i);fetch(i.href,s)}})();const L="modulepreload",A=function(e,t){return new URL(e,t).href},y={},q=function(t,o,n){let i=Promise.resolve();if(o&&o.length>0){let f=function(l){return Promise.all(l.map(d=>Promise.resolve(d).then(h=>({status:"fulfilled",value:h}),h=>({status:"rejected",reason:h}))))};const a=document.getElementsByTagName("link"),r=document.querySelector("meta[property=csp-nonce]"),c=r?.nonce||r?.getAttribute("nonce");i=f(o.map(l=>{if(l=A(l,n),l in y)return;y[l]=!0;const d=l.endsWith(".css"),h=d?'[rel="stylesheet"]':"";if(!!n)for(let v=a.length-1;v>=0;v--){const g=a[v];if(g.href===l&&(!d||g.rel==="stylesheet"))return}else if(document.querySelector(`link[href="${l}"]${h}`))return;const p=document.createElement("link");if(p.rel=d?"stylesheet":L,d||(p.as="script"),p.crossOrigin="",p.href=l,c&&p.setAttribute("nonce",c),document.head.appendChild(p),d)return new Promise((v,g)=>{p.addEventListener("load",v),p.addEventListener("error",()=>g(new Error(`Unable to preload CSS for ${l}`)))})}))}function s(a){const r=new Event("vite:preloadError",{cancelable:!0});if(r.payload=a,window.dispatchEvent(r),!r.defaultPrevented)throw a}return i.then(a=>{for(const r of a||[])r.status==="rejected"&&s(r.reason);return t().catch(s)})};function b(){const t=(window.location.pathname.split("/").pop()||"index.html").replace(".html",""),o=document.querySelectorAll(".nav-item"),n=document.querySelector(".nav-indicator"),i=document.querySelector(".main-header");if(!n||!i)return;function s(){o.forEach(r=>{const c=r.getAttribute("data-page");c===t||t==="index"&&!c?r.classList.add("current-page"):r.classList.remove("current-page")}),a()}function a(r){const c=r||document.querySelector(".nav-item.current-page");if(c&&n){const f=c.getBoundingClientRect(),l=i.getBoundingClientRect(),d=f.left-l.left;n.style.left=`${d}px`,n.style.width=`${f.width}px`,n.classList.add("active")}else c||n.classList.remove("active")}s(),window.addEventListener("resize",()=>a()),o.forEach(r=>{r.addEventListener("mouseenter",function(){a(this)})}),i.addEventListener("mouseleave",function(){a()}),o.forEach(r=>{r.hasAttribute("data-path")||r.addEventListener("click",function(c){c.preventDefault();const f=this.getAttribute("href");this.classList.add("clicked"),setTimeout(()=>{window.location.href=f},150)})})}function w(){if(!document.querySelector("#animation-keyframes")){const o=document.createElement("style");o.id="animation-keyframes",o.textContent=`
+(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const i of document.querySelectorAll('link[rel="modulepreload"]'))n(i);new MutationObserver(i=>{for(const s of i)if(s.type==="childList")for(const a of s.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&n(a)}).observe(document,{childList:!0,subtree:!0});function o(i){const s={};return i.integrity&&(s.integrity=i.integrity),i.referrerPolicy&&(s.referrerPolicy=i.referrerPolicy),i.crossOrigin==="use-credentials"?s.credentials="include":i.crossOrigin==="anonymous"?s.credentials="omit":s.credentials="same-origin",s}function n(i){if(i.ep)return;i.ep=!0;const s=o(i);fetch(i.href,s)}})();const A="modulepreload",L=function(e,t){return new URL(e,t).href},y={},T=function(t,o,n){let i=Promise.resolve();if(o&&o.length>0){let f=function(l){return Promise.all(l.map(d=>Promise.resolve(d).then(h=>({status:"fulfilled",value:h}),h=>({status:"rejected",reason:h}))))};const a=document.getElementsByTagName("link"),r=document.querySelector("meta[property=csp-nonce]"),c=r?.nonce||r?.getAttribute("nonce");i=f(o.map(l=>{if(l=L(l,n),l in y)return;y[l]=!0;const d=l.endsWith(".css"),h=d?'[rel="stylesheet"]':"";if(!!n)for(let v=a.length-1;v>=0;v--){const g=a[v];if(g.href===l&&(!d||g.rel==="stylesheet"))return}else if(document.querySelector(`link[href="${l}"]${h}`))return;const p=document.createElement("link");if(p.rel=d?"stylesheet":A,d||(p.as="script"),p.crossOrigin="",p.href=l,c&&p.setAttribute("nonce",c),document.head.appendChild(p),d)return new Promise((v,g)=>{p.addEventListener("load",v),p.addEventListener("error",()=>g(new Error(`Unable to preload CSS for ${l}`)))})}))}function s(a){const r=new Event("vite:preloadError",{cancelable:!0});if(r.payload=a,window.dispatchEvent(r),!r.defaultPrevented)throw a}return i.then(a=>{for(const r of a||[])r.status==="rejected"&&s(r.reason);return t().catch(s)})};function b(){const t=(window.location.pathname.split("/").pop()||"index.html").replace(".html",""),o=document.querySelectorAll(".nav-item"),n=document.querySelector(".nav-indicator"),i=document.querySelector(".main-header");if(!n||!i)return;function s(){o.forEach(r=>{const c=r.getAttribute("data-page");c===t||t==="index"&&!c?r.classList.add("current-page"):r.classList.remove("current-page")}),a()}function a(r){const c=r||document.querySelector(".nav-item.current-page");if(c&&n){const f=c.getBoundingClientRect(),l=i.getBoundingClientRect(),d=f.left-l.left;n.style.left=`${d}px`,n.style.width=`${f.width}px`,n.classList.add("active")}else c||n.classList.remove("active")}s(),window.addEventListener("resize",()=>a()),o.forEach(r=>{r.addEventListener("mouseenter",function(){a(this)})}),i.addEventListener("mouseleave",function(){a()}),o.forEach(r=>{r.hasAttribute("data-path")||r.addEventListener("click",function(c){c.preventDefault();const f=this.getAttribute("href");this.classList.add("clicked"),setTimeout(()=>{window.location.href=f},150)})})}function w(){if(!document.querySelector("#animation-keyframes")){const o=document.createElement("style");o.id="animation-keyframes",o.textContent=`
             @keyframes fadeInUp {
                 from {
                     opacity: 0;
@@ -51,7 +51,7 @@
             .work-card:hover .card-icon {
                 animation: bounce 0.6s ease;
             }
-        `,document.head.appendChild(o)}const e={threshold:.1,rootMargin:"0px 0px -50px 0px"},t=new IntersectionObserver(function(o){o.forEach(n=>{if(n.isIntersecting){const i=n.target.getAttribute("data-delay")||0;setTimeout(()=>{n.target.classList.add("animated")},i),t.unobserve(n.target)}})},e);T(t)}function T(e){const t=window.location.pathname.split("/").pop()||"index.html";t==="brand.html"?C(e):(t==="index.html"||t==="")&&P(e);const o=document.querySelector(".footer-content");o&&(o.classList.add("animate-fade-in"),o.setAttribute("data-delay","100"),e.observe(o))}function C(e){[{selector:".brand-title",delay:100},{selector:".brand-subtitle",delay:200},{selector:".brand-divider",delay:600},{selector:".brand-question",delay:700},{selector:".work-title",delay:100},{selector:".work-cards-container",delay:200}].forEach(({selector:n,delay:i})=>{const s=document.querySelector(n);s&&(s.classList.add("animate-fade-in"),s.setAttribute("data-delay",i.toString()),e.observe(s))}),document.querySelectorAll(".brand-circle").forEach((n,i)=>{n.classList.add("animate-fade-in"),n.setAttribute("data-delay",(300+i*100).toString()),e.observe(n)})}function P(e){[{selector:".middle-image",delay:100},{selector:".service-main-text",delay:200},{selector:".service-description-text",delay:300}].forEach(({selector:a,delay:r})=>{const c=document.querySelector(a);c&&(c.classList.add("animate-fade-in"),c.setAttribute("data-delay",r.toString()),e.observe(c))}),document.querySelectorAll(".work-card").forEach((a,r)=>{a.classList.add("animate-fade-in-up"),a.setAttribute("data-delay",(100+r*150).toString()),e.observe(a)});const n=document.querySelector(".mission-content");n&&(n.classList.add("animate-fade-in-up"),n.setAttribute("data-delay","100"),e.observe(n)),document.querySelectorAll(".team-member").forEach((a,r)=>{a.classList.add("animate-fade-in-up"),a.setAttribute("data-delay",(100+r*200).toString()),e.observe(a)});const s=document.querySelector(".contact-content");s&&(s.classList.add("animate-fade-in-up"),s.setAttribute("data-delay","100"),e.observe(s))}class m{static show(t,o="success",n=5e3){const i=document.querySelector(".toast");i&&i.remove();const s=document.createElement("div");s.className=`toast toast-${o}`;const a={success:"✅",error:"❌",warning:"⚠️",info:"ℹ️"};return s.innerHTML=`
+        `,document.head.appendChild(o)}const e={threshold:.1,rootMargin:"0px 0px -50px 0px"},t=new IntersectionObserver(function(o){o.forEach(n=>{if(n.isIntersecting){const i=n.target.getAttribute("data-delay")||0;setTimeout(()=>{n.target.classList.add("animated")},i),t.unobserve(n.target)}})},e);q(t)}function q(e){const t=window.location.pathname.split("/").pop()||"index.html";t==="brand.html"?P(e):(t==="index.html"||t==="")&&C(e);const o=document.querySelector(".footer-content");o&&(o.classList.add("animate-fade-in"),o.setAttribute("data-delay","100"),e.observe(o))}function P(e){[{selector:".brand-title",delay:100},{selector:".brand-subtitle",delay:200},{selector:".brand-divider",delay:600},{selector:".brand-question",delay:700},{selector:".work-title",delay:100},{selector:".work-cards-container",delay:200}].forEach(({selector:n,delay:i})=>{const s=document.querySelector(n);s&&(s.classList.add("animate-fade-in"),s.setAttribute("data-delay",i.toString()),e.observe(s))}),document.querySelectorAll(".brand-circle").forEach((n,i)=>{n.classList.add("animate-fade-in"),n.setAttribute("data-delay",(300+i*100).toString()),e.observe(n)})}function C(e){[{selector:".middle-image",delay:100},{selector:".service-main-text",delay:200},{selector:".service-description-text",delay:300}].forEach(({selector:a,delay:r})=>{const c=document.querySelector(a);c&&(c.classList.add("animate-fade-in"),c.setAttribute("data-delay",r.toString()),e.observe(c))}),document.querySelectorAll(".work-card").forEach((a,r)=>{a.classList.add("animate-fade-in-up"),a.setAttribute("data-delay",(100+r*150).toString()),e.observe(a)});const n=document.querySelector(".mission-content");n&&(n.classList.add("animate-fade-in-up"),n.setAttribute("data-delay","100"),e.observe(n)),document.querySelectorAll(".team-member").forEach((a,r)=>{a.classList.add("animate-fade-in-up"),a.setAttribute("data-delay",(100+r*200).toString()),e.observe(a)});const s=document.querySelector(".contact-content");s&&(s.classList.add("animate-fade-in-up"),s.setAttribute("data-delay","100"),e.observe(s))}class m{static show(t,o="success",n=5e3){const i=document.querySelector(".toast");i&&i.remove();const s=document.createElement("div");s.className=`toast toast-${o}`;const a={success:"✅",error:"❌",warning:"⚠️",info:"ℹ️"};return s.innerHTML=`
             <div class="toast-content">
                 <div class="toast-icon">${a[o]||a.success}</div>
                 <div class="toast-message">${t}</div>
@@ -75,9 +75,9 @@
             max-width: none !important;
         }
     }
-`;document.head.querySelector("style[data-toast-styles]")||(x.setAttribute("data-toast-styles","true"),document.head.appendChild(x));const O=["바보","멍청이","씨발","개새끼","존나"];function S(){const e=document.querySelector(".contact-form");if(!e)return;e.addEventListener("submit",R);const t=e.querySelector(".submit-button");t&&t.addEventListener("click",F)}async function R(e){e.preventDefault();const t=z(this);if(t.website){console.warn("Bot detected via honeypot field.");return}if(!I(t))return;const o=this.querySelector(".submit-button"),n=o.textContent;k(o,!0);try{const i=await fetch("https://formspree.io/f/xvzqqkao",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify({name:t.name,email:t.email,company:t.company,phone:t.phone,proposal:t.proposal})});if(i.ok)m.success(`제안이 성공적으로 전달되었습니다.
+`;document.head.querySelector("style[data-toast-styles]")||(x.setAttribute("data-toast-styles","true"),document.head.appendChild(x));const O=["바보","멍청이","씨발","개새끼","존나"];function S(){const e=document.querySelector(".contact-form");if(!e)return;e.addEventListener("submit",R);const t=e.querySelector(".submit-button");t&&t.addEventListener("click",F)}async function R(e){e.preventDefault();const t=I(this);if(t.website){console.warn("Bot detected via honeypot field.");return}if(!z(t))return;const o=this.querySelector(".submit-button"),n=o.textContent;k(o,!0);try{const i=await fetch("https://formspree.io/f/xvzqqkao",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify({name:t.name,email:t.email,company:t.company,phone:t.phone,proposal:t.proposal})});if(i.ok)m.success(`제안이 성공적으로 전달되었습니다.
 
-추가 문의사항은 previtlab@gmail.com으로 연락 부탁드립니다.`,7e3),this.reset();else{const s=await i.json();m.error(s.error||"전송 중 오류가 발생했습니다.")}}catch(i){console.error("Form submission error:",i),m.error("전송 중 오류가 발생했습니다. 다시 시도해주세요.")}finally{k(o,!1,n)}}function z(e){const t=e.querySelectorAll("input, textarea"),o={};return t.forEach(n=>{const i=n.getAttribute("name"),s=n.placeholder;i==="website"?o.website=n.value:s&&(o[s]=n.value.trim())}),{website:o.website||"",name:o.이름||"",email:o.이메일||"",company:o.회사명||"",phone:o.연락처||"",proposal:o["제안 사항"]||""}}function I(e){if(!e.name||!e.email||!e.proposal)return m.error("이름, 이메일, 제안 사항은 필수 항목입니다."),!1;const t=`${e.name} ${e.company} ${e.proposal}`.toLowerCase();return O.some(i=>t.includes(i))?(m.error("부적절한 표현이 포함되어 있어 전송할 수 없습니다."),!1):/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(e.email)?e.phone&&!/^[0-9-]{9,13}$/.test(e.phone.replace(/\s/g,""))?(m.error("올바른 연락처 형식을 입력해주세요. (숫자와 - 사용)"),!1):!0:(m.error("올바른 이메일 형식이 아닙니다."),!1)}function k(e,t,o="제안 보내기"){t?(e.textContent="전송 중...",e.disabled=!0):e.textContent=o}function F(e){const t=e.currentTarget,o=document.createElement("span"),n=t.getBoundingClientRect(),i=Math.max(n.width,n.height),s=e.clientX-n.left-i/2,a=e.clientY-n.top-i/2;o.style.cssText=`
+추가 문의사항은 previtlab@gmail.com으로 연락 부탁드립니다.`,7e3),this.reset();else{const s=await i.json();m.error(s.error||"전송 중 오류가 발생했습니다.")}}catch(i){console.error("Form submission error:",i),m.error("전송 중 오류가 발생했습니다. 다시 시도해주세요.")}finally{k(o,!1,n)}}function I(e){const t=e.querySelectorAll("input, textarea"),o={};return t.forEach(n=>{const i=n.getAttribute("name"),s=n.placeholder;i==="website"?o.website=n.value:s&&(o[s]=n.value.trim())}),{website:o.website||"",name:o.이름||"",email:o.이메일||"",company:o.회사명||"",phone:o.연락처||"",proposal:o["제안 사항"]||""}}function z(e){if(!e.name||!e.email||!e.proposal)return m.error("이름, 이메일, 제안 사항은 필수 항목입니다."),!1;const t=`${e.name} ${e.company} ${e.proposal}`.toLowerCase();return O.some(i=>t.includes(i))?(m.error("부적절한 표현이 포함되어 있어 전송할 수 없습니다."),!1):/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(e.email)?e.phone&&!/^[0-9-]{9,13}$/.test(e.phone.replace(/\s/g,""))?(m.error("올바른 연락처 형식을 입력해주세요. (숫자와 - 사용)"),!1):!0:(m.error("올바른 이메일 형식이 아닙니다."),!1)}function k(e,t,o="제안 보내기"){t?(e.textContent="전송 중...",e.disabled=!0):e.textContent=o}function F(e){const t=e.currentTarget,o=document.createElement("span"),n=t.getBoundingClientRect(),i=Math.max(n.width,n.height),s=e.clientX-n.left-i/2,a=e.clientY-n.top-i/2;o.style.cssText=`
         width: ${i}px;
         height: ${i}px;
         left: ${s}px;
@@ -108,7 +108,7 @@
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 1s ease, transform 1s ease;
-        `,setTimeout(()=>{n.style.opacity="1",n.style.transform="translateY(0)"},900))}function $(){document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(t){t.preventDefault();const o=document.querySelector(this.getAttribute("href"));o&&o.scrollIntoView({behavior:"smooth",block:"start"})})})}function B(){return`
+        `,setTimeout(()=>{n.style.opacity="1",n.style.transform="translateY(0)"},900))}function $(){document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(t){t.preventDefault();const o=document.querySelector(this.getAttribute("href"));o&&o.scrollIntoView({behavior:"smooth",block:"start"})})})}function D(){return`
         <!-- Hero Section -->
         <section id="hero" class="hero-section">
             <video class="hero-video" autoplay muted loop playsinline>
@@ -207,36 +207,7 @@
                 </div>
             </div>
         </section>
-
-        <!-- Footer/Contact Section -->
-        <section id="contact" class="contact-section">
-            <div class="container">
-                <div class="contact-content">
-                    <img src="/assets/연락처로고.png" alt="연락처 로고" class="contact-logo">
-                    <h2>우리와 함께 만들고 싶은 것이 있으신가요?</h2>
-                    <p>PreVIT LAB은 항상 새로운 제안을 기다립니다.</p>
-                    <form class="contact-form">
-                        <!-- Honeypot field for spam protection -->
-                        <div style="display:none !important;">
-                            <input type="text" name="website" tabindex="-1" autocomplete="off">
-                        </div>
-                        <div class="form-row">
-                            <input type="text" placeholder="이름" class="form-input" required>
-                            <input type="email" placeholder="이메일" class="form-input" required>
-                        </div>
-                        <div class="form-row">
-                            <input type="text" placeholder="회사명" class="form-input">
-                            <input type="tel" placeholder="연락처" class="form-input">
-                        </div>
-                        <div class="form-row">
-                            <textarea placeholder="제안 사항" class="form-input-wide" rows="4" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-button">제안 보내기</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    `}function D(){return`
+    `}function N(){return`
         <!-- First Section -->
         <section class="brand-first-section">
             <h1 class="brand-title">PreVIT LAB</h1>
@@ -284,7 +255,7 @@
                 </div>
             </div>
         </section>
-    `}function N(){return`
+    `}function _(){return`
         <style>
             .product-main-section {
                 height: auto;
@@ -579,18 +550,18 @@
                     </div>
                 </div>
 
-                <div class="product-box" id="momcheck-box">
-                    <img src="/assets/service_momcheck.png" alt="MomCheck Service" class="product-box-bg" onerror="this.onerror=null; this.src='/assets/service_rrobot.png';">
+                <div class="product-box" id="moket-box">
+                    <img src="/assets/service_moket.png" alt="Moket Service" class="product-box-bg" onerror="this.onerror=null; this.src='/assets/service_rrobot.png';">
                     <div class="product-content">
-                        <div class="product-title">MomCheck</div>
-                        <div class="product-subtitle">임신 체중 증가 계산기 : 맘체크 MomCheck</div>
+                        <div class="product-title">Moket</div>
+                        <div class="product-subtitle">[내 업무에 맞는 AI 도구 찾기 : 모켓 Moket]</div>
                         <div class="product-description">
-                            임신 중 체중 변화를 한눈에 확인할 수 있는 건강 관리 서비스입니다.<br>
-                            주차별 권장 체중과 현재 상태를 비교하고, 태아·양수·태반 등 증가된 체중의 분포도를 볼 수 있어요.<br>
-                            데이터와 시각화를 통해 임신 기간의 변화를 더욱 이해하기 쉽게 알려드릴게요.
+                            직업·업무별로 맞는 AI 도구를 골라주는 한국형 AI 도구 디렉토리입니다.<br>
+                            실제 작동 여부와 신뢰도를 검증해 추천하고, 직업별 AI 영향도까지 비교해 드려요.<br>
+                            복잡한 AI 탐색은 끝, 내게 필요한 도구만 빠르게 찾아보세요.
                         </div>
                         <div class="product-buttons">
-                            <a href="https://www.momcheck.kr/" target="_blank" class="product-button">
+                            <a href="https://www.moket.kr/" target="_blank" class="product-button">
                                 <img src="/assets/product_internet.png" alt="Internet" onerror="this.onerror=null; this.src='/assets/service_rrobot.png';">
                             </a>
                         </div>
@@ -598,4 +569,4 @@
                 </div>
             </div>
         </section>
-    `}let u;document.addEventListener("DOMContentLoaded",function(){console.log("DOM loaded, initializing SPA"),q(async()=>{const{default:e}=await import("./router-BPtdOEN-.js");return{default:e}},[],import.meta.url).then(({default:e})=>{u=new e,u.addRoute("/",B),u.addRoute("/brand",D),u.addRoute("/product",N),console.log("Routes registered:",Array.from(u.routes.keys())),u.onRender=t=>{console.log("Route rendered:",t),b(),w(),S(),E()},u.init(),window.router=u}),b(),w(),S(),E(),document.body.style.opacity="0",document.body.style.transition="opacity 0.5s ease",setTimeout(()=>{document.body.style.opacity="1"},100),console.log("PreVIT SPA loaded successfully")});
+    `}let u;document.addEventListener("DOMContentLoaded",function(){console.log("DOM loaded, initializing SPA"),T(async()=>{const{default:e}=await import("./router-0TmEiAIW.js");return{default:e}},[],import.meta.url).then(({default:e})=>{u=new e,u.addRoute("/",D),u.addRoute("/brand",N),u.addRoute("/product",_),console.log("Routes registered:",Array.from(u.routes.keys())),u.onRender=t=>{console.log("Route rendered:",t),b(),w(),S(),E()},u.init(),window.router=u}),b(),w(),S(),E(),document.body.style.opacity="0",document.body.style.transition="opacity 0.5s ease",setTimeout(()=>{document.body.style.opacity="1"},100),console.log("PreVIT SPA loaded successfully")});
