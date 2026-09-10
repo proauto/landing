@@ -295,18 +295,18 @@ export function ProductComponent() {
                     </div>
                 </div>
 
-                <div class="product-box" id="momcheck-box">
-                    <img src="/assets/service_momcheck.png" alt="MomCheck Service" class="product-box-bg" onerror="this.onerror=null; this.src='/assets/service_rrobot.png';">
+                <div class="product-box" id="moket-box">
+                    <img src="/assets/service_moket.png" alt="Moket Service" class="product-box-bg" onerror="this.onerror=null; this.src='/assets/service_rrobot.png';">
                     <div class="product-content">
-                        <div class="product-title">MomCheck</div>
-                        <div class="product-subtitle">임신 체중 증가 계산기 : 맘체크 MomCheck</div>
+                        <div class="product-title">Moket</div>
+                        <div class="product-subtitle">[내 업무에 맞는 AI 도구 찾기 : 모켓 Moket]</div>
                         <div class="product-description">
-                            임신 중 체중 변화를 한눈에 확인할 수 있는 건강 관리 서비스입니다.<br>
-                            주차별 권장 체중과 현재 상태를 비교하고, 태아·양수·태반 등 증가된 체중의 분포도를 볼 수 있어요.<br>
-                            데이터와 시각화를 통해 임신 기간의 변화를 더욱 이해하기 쉽게 알려드릴게요.
+                            직업·업무별로 맞는 AI 도구를 골라주는 한국형 AI 도구 디렉토리입니다.<br>
+                            실제 작동 여부와 신뢰도를 검증해 추천하고, 직업별 AI 영향도까지 비교해 드려요.<br>
+                            복잡한 AI 탐색은 끝, 내게 필요한 도구만 빠르게 찾아보세요.
                         </div>
                         <div class="product-buttons">
-                            <a href="https://www.momcheck.kr/" target="_blank" class="product-button">
+                            <a href="https://www.moket.kr/" target="_blank" class="product-button">
                                 <img src="/assets/product_internet.png" alt="Internet" onerror="this.onerror=null; this.src='/assets/service_rrobot.png';">
                             </a>
                         </div>

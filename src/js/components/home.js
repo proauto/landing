@@ -99,34 +99,5 @@ export function HomeComponent() {
                 </div>
             </div>
         </section>
-
-        <!-- Footer/Contact Section -->
-        <section id="contact" class="contact-section">
-            <div class="container">
-                <div class="contact-content">
-                    <img src="/assets/연락처로고.png" alt="연락처 로고" class="contact-logo">
-                    <h2>우리와 함께 만들고 싶은 것이 있으신가요?</h2>
-                    <p>PreVIT LAB은 항상 새로운 제안을 기다립니다.</p>
-                    <form class="contact-form">
-                        <!-- Honeypot field for spam protection -->
-                        <div style="display:none !important;">
-                            <input type="text" name="website" tabindex="-1" autocomplete="off">
-                        </div>
-                        <div class="form-row">
-                            <input type="text" placeholder="이름" class="form-input" required>
-                            <input type="email" placeholder="이메일" class="form-input" required>
-                        </div>
-                        <div class="form-row">
-                            <input type="text" placeholder="회사명" class="form-input">
-                            <input type="tel" placeholder="연락처" class="form-input">
-                        </div>
-                        <div class="form-row">
-                            <textarea placeholder="제안 사항" class="form-input-wide" rows="4" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-button">제안 보내기</button>
-                    </form>
-                </div>
-            </div>
-        </section>
     `;
 }
