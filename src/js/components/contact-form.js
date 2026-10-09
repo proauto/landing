@@ -57,7 +57,7 @@ async function handleFormSubmit(e) {
 
         if (response.ok) {
             Toast.success(
-                `제안이 성공적으로 전달되었습니다.\n\n추가 문의사항은 previtlab@gmail.com으로 연락 부탁드립니다.`,
+                `제안이 성공적으로 전달되었습니다.\n\n추가 문의사항은 dev@previtlab.com으로 연락 부탁드립니다.`,
                 7000
             );
             this.reset();
