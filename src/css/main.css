@@ -392,6 +392,12 @@
     margin: 0 6px;
 }
 
+.label-en {
+    font-weight: 400;
+    opacity: 0.7;
+    margin-left: 2px;
+}
+
 /* CTA Button Styles */
 .cta-button {
     display: inline-block;
@@ -650,31 +656,6 @@ article a.cta-button {
     margin-bottom: 40px;
 }
 
-.company-facts {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px 32px;
-    background: var(--white);
-    border-radius: 16px;
-    padding: 28px 32px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-    margin-bottom: 40px;
-}
-
-.company-facts dt {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--gray-600);
-    margin-bottom: 4px;
-}
-
-.company-facts dd {
-    font-size: 16px;
-    margin: 0;
-    overflow-wrap: anywhere;
-}
-
-.company-facts a,
 .company-products a,
 .footer-mail {
     color: inherit;
@@ -717,10 +698,5 @@ article a.cta-button {
 
     .company-lead {
         font-size: 15px;
-    }
-
-    .company-facts {
-        grid-template-columns: 1fr;
-        padding: 20px;
     }
 }
