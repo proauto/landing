@@ -611,3 +611,112 @@ article a.cta-button {
         max-width: 280px;
     }
 }
+/* Company information (About PrevitLAB) — static, shown on every page above the footer */
+.company-section {
+    padding: 80px 16px;
+    background: #EDF2FB;
+    color: var(--gray-800);
+}
+
+.company-inner {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.company-title {
+    text-align: center;
+    font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: #0D0E78;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.company-lead {
+    text-align: center;
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.company-facts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 32px;
+    background: var(--white);
+    border-radius: 16px;
+    padding: 28px 32px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    margin-bottom: 40px;
+}
+
+.company-facts dt {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-600);
+    margin-bottom: 4px;
+}
+
+.company-facts dd {
+    font-size: 16px;
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.company-facts a,
+.company-products a,
+.footer-mail {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* 개발자 확인 전 자리 표시 — 값이 채워지기 전엔 배포하지 않는다 */
+.fact-tbd {
+    color: var(--gray-400);
+    border-bottom: 1px dashed var(--gray-400);
+}
+
+.company-subtitle {
+    font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #0D0E78;
+    margin-bottom: 16px;
+}
+
+.company-products {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 12px;
+}
+
+.company-products li {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .company-section {
+        padding: 56px 16px;
+    }
+
+    .company-title {
+        font-size: 22px;
+    }
+
+    .company-lead {
+        font-size: 15px;
+    }
+
+    .company-facts {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+}

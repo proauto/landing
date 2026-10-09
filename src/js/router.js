@@ -39,7 +39,7 @@ export default class Router {
         }
 
         // Simple normalization for static hosting
-        let normalizedPath = path.replace(/\/index\.html$/, '/') || '/';
+        let normalizedPath = path.replace(/\/index\.html$/, '/').replace(/\.html$/, '') || '/'; // /product.html 직접 진입도 /product로
         if (normalizedPath !== '/' && normalizedPath.endsWith('/')) {
             normalizedPath = normalizedPath.slice(0, -1);
         }
