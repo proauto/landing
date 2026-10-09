@@ -1,7 +1,7 @@
 {
   "name": "previt-landing",
   "version": "1.0.1",
-  "description": "PreVIT 랜딩 페이지 - ChefStack integration",
+  "description": "PrevitLab Inc. 회사 홈페이지(previtlab.com)",
   "type": "module",
   "scripts": {
     "dev": "vite",

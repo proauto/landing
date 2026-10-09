@@ -32,12 +32,6 @@ export default class Router {
     }
 
     handleRoute(path) {
-        // Skip routing for standalone pages (served as independent HTML files)
-        const standalonePages = ['/momcheck/', '/chefstack/'];
-        if (standalonePages.some(p => path.startsWith(p))) {
-            return;
-        }
-
         // Simple normalization for static hosting
         let normalizedPath = path.replace(/\/index\.html$/, '/').replace(/\.html$/, '') || '/'; // /product.html 직접 진입도 /product로
         if (normalizedPath !== '/' && normalizedPath.endsWith('/')) {

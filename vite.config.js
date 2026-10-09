@@ -13,12 +13,7 @@ export default defineConfig({
         404: resolve(__dirname, 'src/404.html'),
         // 모든 정적 페이지들
         brand: resolve(__dirname, 'src/brand.html'),
-        product: resolve(__dirname, 'src/product.html'),
-        // ChefStack 계정 삭제 페이지 (Google Play 정책)
-        chefstackAccountDeletion: resolve(__dirname, 'src/chefstack-account-deletion.html'),
-        // MOMCHECK 페이지 (Google Play 정책)
-        momcheckPrivacyPolicy: resolve(__dirname, 'src/momcheck/privacy-policy.html'),
-        momcheckAccountDeletion: resolve(__dirname, 'src/momcheck/account-deletion.html')
+        product: resolve(__dirname, 'src/product.html')
       },
       output: {
         // 안정적인 chunk 생성을 위한 설정
