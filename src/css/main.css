@@ -385,7 +385,12 @@
 
 .biz-info {
     font-size: 14px;
-    overflow-wrap: anywhere;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+
+.biz-pair {
+    display: inline-block;
 }
 
 .biz-sep {
