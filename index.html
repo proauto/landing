@@ -4,25 +4,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PreVIT - 아이디어를 서비스로</title>
-  <meta name="description" content="아이디어로만 끝났던 일, 프레빗이 서비스로 만듭니다. 작고 사소하지만 꼭 필요했던 생각을 우리는 AI로 빠르게 구현합니다.">
-  <meta name="keywords" content="아이디어, 컨설팅, AI, 서비스 개발, PreVIT">
+  <title>PrevitLab Inc. (프레빗랩 주식회사) - 아이디어를 서비스로 | Moket</title>
+  <meta name="description" content="PrevitLab(PreVIT LAB, 프레빗랩) — 아이디어로만 끝났던 일, 프레빗이 서비스로 만듭니다. AI 도구 추천·비교 서비스 Moket(moket.kr) 운영. A Korean software company building AI services, including Moket.">
+  <meta name="keywords" content="PrevitLab, PreVIT LAB, 프레빗랩, Moket, 모켓, AI 도구 추천, 아이디어, AI, 서비스 개발, PreVIT">
+  <link rel="canonical" href="https://previtlab.com/">
 
   <!-- Open Graph Meta Tags for Social Media Preview -->
-  <meta property="og:title" content="PreVIT - 아이디어를 서비스로">
-  <meta property="og:description" content="아이디어로만 끝났던 일, 프레빗이 서비스로 만듭니다. 작고 사소하지만 꼭 필요했던 생각을 우리는 AI로 빠르게 구현합니다.">
-  <meta property="og:image" content="./assets/프리뷰.png">
+  <meta property="og:title" content="PrevitLab (PreVIT LAB) - 아이디어를 서비스로">
+  <meta property="og:description" content="PrevitLab(PreVIT LAB, 프레빗랩) — 아이디어로만 끝났던 일, 프레빗이 서비스로 만듭니다. AI 도구 추천·비교 서비스 Moket(moket.kr) 운영. A Korean software company building AI services, including Moket.">
+  <meta property="og:image" content="https://previtlab.com/assets/프리뷰.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:url" content="/">
+  <meta property="og:url" content="https://previtlab.com/">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="PreVIT">
+  <meta property="og:site_name" content="PrevitLab">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:locale:alternate" content="en_US">
 
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="PreVIT - 아이디어를 서비스로">
-  <meta name="twitter:description" content="아이디어로만 끝났던 일, 프레빗이 서비스로 만듭니다. 작고 사소하지만 꼭 필요했던 생각을 우리는 AI로 빠르게 구현합니다.">
-  <meta name="twitter:image" content="./assets/프리뷰.png">
+  <meta name="twitter:title" content="PrevitLab (PreVIT LAB) - 아이디어를 서비스로">
+  <meta name="twitter:description" content="PrevitLab(PreVIT LAB, 프레빗랩) — 아이디어로만 끝났던 일, 프레빗이 서비스로 만듭니다. AI 도구 추천·비교 서비스 Moket(moket.kr) 운영. A Korean software company building AI services, including Moket.">
+  <meta name="twitter:image" content="https://previtlab.com/assets/프리뷰.png">
 
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-M2E4RCFFRC"></script>
@@ -44,19 +47,23 @@
       "@graph": [
         {
           "@type": "Organization",
-          "name": "PreVIT LAB",
-          "alternateName": "PreVIT",
-          "description": "아이디어를 서비스로 만드는 회사",
+          "@id": "https://previtlab.com/#organization",
+          "name": "PrevitLab Inc.",
+          "legalName": "프레빗랩 주식회사",
+          "alternateName": ["PrevitLab", "PreVIT LAB", "PreVIT", "프레빗랩"],
+          "taxID": "683-88-03760",
+          "description": "아이디어를 서비스로 만드는 회사 — A Korean software company that turns everyday ideas into AI-powered services, including Moket (moket.kr).",
           "url": "https://previtlab.com",
           "logo": "https://previtlab.com/assets/로고.png",
           "image": "https://previtlab.com/assets/프리뷰.png",
           "contactPoint": {
             "@type": "ContactPoint",
-            "email": "previtlab@gmail.com",
+            "email": "dev@previtlab.com",
             "contactType": "customer service",
-            "availableLanguage": ["Korean"]
+            "availableLanguage": ["Korean", "English"]
           },
-          "foundingDate": "2024",
+          "email": "dev@previtlab.com",
+          "foundingDate": "2025-08-13",
           "founder": {
             "@type": "Person",
             "name": "서민아"
@@ -64,8 +71,29 @@
           "address": {
             "@type": "PostalAddress",
             "addressCountry": "KR",
-            "addressLocality": "Seoul"
+            "addressRegion": "경기도",
+            "addressLocality": "성남시 분당구",
+            "streetAddress": "미금로184 108동 804호"
           }
+        },
+        {
+          "@type": "WebApplication",
+          "name": "Moket",
+          "alternateName": "모켓",
+          "url": "https://moket.kr",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "description": "AI tool recommendation and comparison service for Korean users.",
+          "publisher": { "@id": "https://previtlab.com/#organization" }
+        },
+        {
+          "@type": "MobileApplication",
+          "name": "MODN Calculator",
+          "alternateName": "MODN 모든 계산기",
+          "url": "https://play.google.com/store/apps/details?id=com.modncalculator.app",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Android",
+          "publisher": { "@id": "https://previtlab.com/#organization" }
         },
         {
           "@type": "WebSite",
@@ -81,14 +109,7 @@
             },
             "query-input": "required name=search_term_string"
           },
-          "publisher": {
-            "@type": "Organization",
-            "name": "PreVIT LAB",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://previtlab.com/assets/로고.png"
-            }
-          }
+          "publisher": { "@id": "https://previtlab.com/#organization" }
         }
       ]
     }
@@ -113,8 +134,8 @@
 
 
   <!-- Vite will inject the correct assets during build -->
-  <script type="module" crossorigin src="./assets/main-B2j8U-yN.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/main-BokUZkFU.css">
+  <script type="module" crossorigin src="./assets/main-C3X35y2f.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/main-CRvNENac.css">
 </head>
 
 <body>
@@ -145,13 +166,39 @@
     <!-- Content will be dynamically loaded here -->
   </main>
 
+    <!-- Company information (English, static — visible without JavaScript) -->
+  <section id="company" class="company-section" lang="en" aria-labelledby="company-title">
+    <div class="company-inner">
+      <h2 id="company-title" class="company-title">About PrevitLab Inc.</h2>
+      <p class="company-lead">PrevitLab Inc. (프레빗랩 주식회사, PreVIT LAB) is a Korean software company that turns small, everyday ideas into working services, built quickly with AI.</p>
+      <dl class="company-facts">
+        <div><dt>Company</dt><dd>PrevitLab Inc. (프레빗랩 주식회사, PreVIT LAB)</dd></div>
+        <div><dt>Mail-order business registration no.</dt><dd>2025-성남분당B-0859</dd></div>
+        <div><dt>Founded</dt><dd>2025-08-13 (business opened)</dd></div>
+        <div><dt>Business registration no.</dt><dd>683-88-03760</dd></div>
+        <div><dt>Location</dt><dd>경기도 성남시 분당구 미금로184 108동 804호 (Seongnam-si, Gyeonggi-do, Republic of Korea)</dd></div>
+        <div><dt>CEO</dt><dd>Mina Seo (서민아)</dd></div>
+        <div><dt>Contact</dt><dd><a href="mailto:dev@previtlab.com">dev@previtlab.com</a></dd></div>
+      </dl>
+      <h3 class="company-subtitle">Products</h3>
+      <ul class="company-products">
+        <li><a href="https://moket.kr" target="_blank" rel="noopener"><strong>Moket</strong></a> &mdash; moket.kr, an AI tool recommendation and comparison service for Korean users. Moket helps people find AI tools that fit their job and task, and includes Jev, a built-in assistant that suggests tools for a task described in plain language.</li>
+        <li><a href="https://play.google.com/store/apps/details?id=com.modncalculator.app" target="_blank" rel="noopener"><strong>MODN Calculator</strong></a> &mdash; an all-in-one calculator app for Android covering everyday, finance, fitness, education and engineering calculations (Google Play).</li>
+      </ul>
+    </div>
+  </section>
+
   <!-- Footer Section -->
   <section id="footer" class="footer-section">
     <div class="container">
       <div class="footer-content">
         <p class="company-name">프레빗랩</p>
+        <p class="biz-info"><span class="bold-label">상호</span> 프레빗랩 주식회사 (PrevitLab Inc.)</p>
         <p class="ceo-info"><span class="bold-label">대표</span> 서민아</p>
-        <p class="contact-info"><span class="bold-label">문의</span> previtlab@gmail.com</p>
+        <p class="biz-info"><span class="bold-label">사업자등록번호</span> 683-88-03760 <span class="biz-sep">·</span> <span class="bold-label">개업일</span> 2025-08-13</p>
+        <p class="biz-info"><span class="bold-label">통신판매업 신고번호</span> 2025-성남분당B-0859</p>
+        <p class="biz-info"><span class="bold-label">사업장 주소</span> 경기도 성남시 분당구 미금로184 108동 804호</p>
+        <p class="contact-info"><span class="bold-label">문의</span> <a href="mailto:dev@previtlab.com" class="footer-mail">dev@previtlab.com</a></p>
       </div>
     </div>
   </section>
