@@ -13,7 +13,10 @@ export default defineConfig({
         404: resolve(__dirname, 'src/404.html'),
         // 모든 정적 페이지들
         brand: resolve(__dirname, 'src/brand.html'),
-        product: resolve(__dirname, 'src/product.html')
+        product: resolve(__dirname, 'src/product.html'),
+        // 루담(Dreamer) 약관 — 독립 정적 페이지
+        rudamTerms: resolve(__dirname, 'src/rudam/terms.html'),
+        rudamPrivacy: resolve(__dirname, 'src/rudam/privacy.html')
       },
       output: {
         // 안정적인 chunk 생성을 위한 설정
