@@ -277,23 +277,6 @@ export function ProductComponent() {
         <section class="product-main-section">
             <div class="product-container">
                 
-                <div class="product-box" id="modncal-box">
-                    <img src="/assets/service_modncal.png" alt="MODN Cal Service" class="product-box-bg" onerror="this.onerror=null; this.src='/assets/service_rrobot.png';">
-                    <div class="product-content">
-                        <div class="product-title">MODN 모든 계산기</div>
-                        <div class="product-subtitle">[세상의 모든 계산, MODN 올인원 계산기]</div>
-                        <div class="product-description">
-                            MODN 계산기는 단순한 계산 기능을 넘어,<br>
-                            실생활, 금융, 운동, 교육, 기술 분야까지 다양한 계산을 손쉽게 해결할 수 있는<br>
-                            올인원 통합 계산기 앱 입니다.
-                            </div>
-                        <div class="product-buttons">
-                            <a href="https://play.google.com/store/apps/details?id=com.modncalculator.app&hl=ko" class="product-button">
-                                <img src="/assets/product_google.png" alt="Google" onerror="this.onerror=null; this.src='/assets/service_rrobot.png';">
-                            </a>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="product-box" id="moket-box">
                     <img src="/assets/service_moket.png" alt="Moket Service" class="product-box-bg" onerror="this.onerror=null; this.src='/assets/service_rrobot.png';">
