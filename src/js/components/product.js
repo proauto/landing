@@ -295,6 +295,26 @@ export function ProductComponent() {
                         </div>
                     </div>
                 </div>
+                <div class="product-box" id="kongkong-box">
+                    <img src="/assets/service_kongkong.webp" alt="콩콩파킹" class="product-box-bg" style="aspect-ratio:1280/316;object-fit:cover;object-position:center">
+                    <div class="product-content">
+                        <div class="product-title">콩콩파킹</div>
+                        <div class="product-subtitle">[핸들을 돌려 주차하는 주차 연습 게임 : 콩콩파킹]</div>
+                        <div class="product-description">
+                            핸들과 기어, 페달로 차를 몰아 주차 칸에 넣는 모바일 주차 게임입니다.<br>
+                            운전 연습장부터 시장 골목, 학교 앞, 주차 타워까지 여러 길에서 연습할 수 있어요.<br>
+                            부딪혀도 괜찮아요, 몇 번이든 다시 해 보세요.
+                        </div>
+                        <div class="product-buttons">
+                            <a href="https://www.moket.kr/kongkong?utm_source=brand-site&amp;utm_medium=referral" target="_blank" rel="noopener noreferrer" class="product-button" aria-label="콩콩파킹 소개 페이지">
+                                <img src="/assets/product_internet.png" alt="Internet">
+                            </a>
+                            <a href="https://play.google.com/store/apps/details?id=com.congcongparking.app&amp;referrer=utm_source%3Dbrand-site%26utm_medium%3Dreferral" target="_blank" rel="noopener noreferrer" class="product-button" aria-label="Google Play에서 콩콩파킹 받기">
+                                <img src="/assets/product_google.png" alt="Google Play">
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     `;
