@@ -148,9 +148,10 @@ const mailtoTrigger = $('mailto-trigger');
 const EMAIL_RE = /[^\s@]+@[^\s@]+\.[^\s@]{2,}/;
 const hasPhone = (v) => (v.match(/\d/g) || []).length >= 8;
 const RULES = {
-  'org-name': (v) => (!v ? '기관 또는 기업명을 입력해 주세요.' : v.length < 2 ? '기관 또는 기업명을 2자 이상 입력해 주세요.' : ''),
-  'contact-info': (v) => (!v ? '담당자 연락처를 입력해 주세요.' : !(EMAIL_RE.test(v) || hasPhone(v)) ? '회신받을 이메일 주소나 전화번호를 넣어 주세요.' : ''),
-  'inquiry-details': (v) => (!v ? '예상 일정과 요청사항을 입력해 주세요.' : v.length < 5 ? '예상 일정과 요청사항을 조금 더 자세히 적어 주세요.' : ''),
+  // 길이 상한은 입력 칸의 maxlength와 같은 값이다(칸 속성을 지우고 넣어도 여기서 다시 막는다)
+  'org-name': (v) => (!v ? '기관 또는 기업명을 입력해 주세요.' : v.length < 2 ? '기관 또는 기업명을 2자 이상 입력해 주세요.' : v.length > 60 ? '기관 또는 기업명은 60자까지 입력할 수 있습니다.' : ''),
+  'contact-info': (v) => (!v ? '담당자 연락처를 입력해 주세요.' : v.length > 80 ? '담당자 연락처는 80자까지 입력할 수 있습니다.' : !(EMAIL_RE.test(v) || hasPhone(v)) ? '회신받을 이메일 주소나 전화번호를 넣어 주세요.' : ''),
+  'inquiry-details': (v) => (!v ? '예상 일정과 요청사항을 입력해 주세요.' : v.length < 5 ? '예상 일정과 요청사항을 조금 더 자세히 적어 주세요.' : v.length > 1000 ? '요청사항은 1,000자까지 입력할 수 있습니다.' : ''),
 };
 function validateField(id) {
   const el = $(id);
