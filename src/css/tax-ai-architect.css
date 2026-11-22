@@ -1,0 +1,54 @@
+/* 강의 랜딩(/tax-ai-architect) 전용 스타일. 다른 쪽에서는 불러오지 않는다. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Pretendard', sans-serif;
+  color: #0F172A;
+  background-color: #FAFAFB;
+  letter-spacing: -0.02em;
+  word-break: keep-all;
+}
+.bg-editorial-grid {
+  background-size: 36px 36px;
+  background-image:
+    linear-gradient(to right, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+}
+/* Smooth Accordion Transition */
+.accordion-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.25s ease-out;
+}
+.accordion-content.open {
+  grid-template-rows: 1fr;
+}
+.accordion-inner {
+  overflow: hidden;
+}
+/* 접힌 목차 안으로 키보드 초점이 들어가지 않게 */
+.accordion-content:not(.open) .accordion-inner {
+  visibility: hidden;
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+/* 키보드 초점 표시(마우스 클릭에는 나타나지 않는다) */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #1D4ED8;
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .accordion-content { transition: none; }
+}
