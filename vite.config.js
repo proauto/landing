@@ -69,7 +69,8 @@ export default defineConfig({
   },
   define: {
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
-    __TAX_AI_CONTACT_EMAIL__: JSON.stringify(siteConfig.taxAiContactEmail)
+    __TAX_AI_CONTACT_EMAIL__: JSON.stringify(siteConfig.taxAiContactEmail),
+    __TAX_AI_INQUIRY_API__: JSON.stringify(siteConfig.taxAiInquiryApi)
   },
   envPrefix: 'VITE_'
 });

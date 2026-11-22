@@ -5,8 +5,9 @@ import {
   ChevronUp, ChevronDown, Mail, Copy, Linkedin, ExternalLink, MapPin, Send, Check,
 } from 'lucide';
 
-/* global __TAX_AI_CONTACT_EMAIL__ */
+/* global __TAX_AI_CONTACT_EMAIL__, __TAX_AI_INQUIRY_API__ */
 const CONTACT_EMAIL = __TAX_AI_CONTACT_EMAIL__; // site.config.js 값(빌드 때 채워진다)
+const INQUIRY_API = __TAX_AI_INQUIRY_API__; // 문의를 받는 서버 주소(site.config.js)
 
 createIcons({
   icons: {
@@ -137,7 +138,7 @@ document.querySelector('[data-copy-email]')?.addEventListener('click', async () 
   }
 });
 
-// ── 문의 양식: 입력값 검증 → 요약 창 ──
+// ── 문의 양식: 입력값 검증 → 서버로 보내기 → 접수 안내 창(실패하면 직접 메일 안내) ──
 let lastInquiryPlainText = '';
 let lastFocus = null;
 const inquiryForm = $('inquiry-form');
@@ -177,16 +178,21 @@ function summaryRow(label, value, extraClass) {
   return { row, value };
 }
 
-inquiryForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const bad = Object.keys(RULES).filter((id) => !validateField(id));
-  if (bad.length) { $(bad[0]).focus(); return; }
+const submitBtn = $('inquiry-submit');
+const submitLabel = $('inquiry-submit-label');
+const formError = $('inquiry-form-error');
+const modalTitle = $('modal-title');
+const modalDesc = $('modal-desc');
+const SERVER_FIELD = { orgName: 'org-name', contact: 'contact-info', details: 'inquiry-details' };
+let sending = false;
 
-  const orgName = $('org-name').value.trim();
-  const contactInfo = $('contact-info').value.trim();
-  const track = $('track-select').value;
-  const details = $('inquiry-details').value.trim();
+function setFormError(msg) {
+  formError.textContent = msg || '';
+  formError.classList.toggle('hidden', !msg);
+}
 
+// 접수 안내 창. sent=true면 접수됨, false면 보내지 못해 직접 메일로 안내한다.
+function openResultModal(sent, { orgName, contactInfo, track, details }) {
   // 입력값은 글자로만 넣는다(태그로 해석되지 않는다)
   modalSummary.replaceChildren();
   [['기관/기업명', orgName], ['담당자 연락처', contactInfo], ['희망 강의', track]].forEach(([label, value]) => {
@@ -202,15 +208,80 @@ inquiryForm.addEventListener('submit', (e) => {
   });
   modalSummary.append(reqRow);
 
-  lastInquiryPlainText = `[이홍규 강사 강의 섭외 문의]\n- 기관/기업명: ${orgName}\n- 담당자 연락처: ${contactInfo}\n- 희망 강의 트랙: ${track}\n- 일정 및 요청사항:\n${details}`;
+  lastInquiryPlainText = `[강의 섭외 문의]\n- 기관/기업명: ${orgName}\n- 담당자 연락처: ${contactInfo}\n- 희망 강의 트랙: ${track}\n- 일정 및 요청사항:\n${details}`;
   const subject = encodeURIComponent(`[강의 섭외 문의] ${orgName} — ${track}`);
-  const body = encodeURIComponent(lastInquiryPlainText);
-  mailtoTrigger.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+  mailtoTrigger.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${encodeURIComponent(lastInquiryPlainText)}`;
+  mailtoTrigger.classList.toggle('hidden', sent);
+  $('modal-ok-icon').classList.toggle('hidden', !sent); // 접수 표시(체크)는 접수됐을 때만
+
+  modalTitle.textContent = sent ? '강의 섭외 문의가 접수되었습니다' : '문의를 접수하지 못했습니다';
+  modalDesc.textContent = sent
+    ? '보내 주신 내용이 담당자에게 전달되었습니다. 확인한 뒤 적어 주신 연락처로 회신드리겠습니다.'
+    : `지금은 접수가 되지 않습니다. 아래 내용을 ${CONTACT_EMAIL} 으로 직접 보내 주세요.`;
+  modal.dataset.result = sent ? 'sent' : 'failed';
 
   lastFocus = document.activeElement;
   modal.classList.remove('hidden');
   modal.classList.add('flex');
-  $('modal-title').focus();
+  modalTitle.focus();
+}
+
+inquiryForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  if (sending) return;
+  setFormError('');
+  const bad = Object.keys(RULES).filter((id) => !validateField(id));
+  if (bad.length) { $(bad[0]).focus(); return; }
+
+  const data = {
+    orgName: $('org-name').value.trim(),
+    contactInfo: $('contact-info').value.trim(),
+    track: $('track-select').value,
+    details: $('inquiry-details').value.trim(),
+  };
+
+  sending = true;
+  submitBtn.disabled = true;
+  const labelBefore = submitLabel.textContent;
+  submitLabel.textContent = '보내는 중…';
+  let status = 0;
+  let result = null;
+  try {
+    const res = await fetch(INQUIRY_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ orgName: data.orgName, contact: data.contactInfo, track: data.track, details: data.details, website: $('inq-website').value }),
+      signal: AbortSignal.timeout(15000),
+    });
+    status = res.status;
+    result = await res.json().catch(() => null);
+  } catch { status = 0; }
+  sending = false;
+  submitBtn.disabled = false;
+  submitLabel.textContent = labelBefore;
+
+  if (status === 200 && result?.ok) {
+    openResultModal(true, data);
+    inquiryForm.reset();
+    return;
+  }
+  if (status === 400 && result?.field && SERVER_FIELD[result.field]) {
+    // 서버가 다시 검사해 돌려보낸 칸
+    const id = SERVER_FIELD[result.field];
+    const err = $(`err-${id}`);
+    err.textContent = '입력 내용을 다시 확인해 주세요.';
+    err.classList.remove('hidden');
+    $(id).classList.add('border-red-500');
+    $(id).setAttribute('aria-invalid', 'true');
+    $(id).focus();
+    return;
+  }
+  if (status === 429) {
+    setFormError(`접수가 잠시 몰렸습니다. 조금 뒤에 다시 시도하시거나 ${CONTACT_EMAIL} 으로 직접 보내 주세요.`);
+    return;
+  }
+  // 그 밖의 실패(서버 오류·연결 끊김): 쓴 글을 남겨 둔 채 직접 메일로 안내한다.
+  openResultModal(false, data);
 });
 
 function closeModal() {

@@ -2,6 +2,9 @@
 export default {
   // 강의 랜딩(/tax-ai-architect) 문의를 받는 메일 주소
   taxAiContactEmail: 'dev@previtlab.com',
+  // 강의 랜딩 문의 양식을 받는 서버 주소(모켓 서버의 접수 경로 — 여기서 위 메일 주소로 보낸다).
+  // www 없는 주소는 넘겨 보내기(308)라 브라우저가 막으므로 www를 붙인 주소를 쓴다.
+  taxAiInquiryApi: 'https://www.moket.kr/api/previtlab/inquiry',
   // 강의 랜딩 첫 화면 큰 글(여기만 바꾸면 화면과 링크 미리보기 설명 글이 같이 바뀐다)
   // 화면: line1 줄바꿈 뒤 line2Before + (파란 강조)highlight + line2After
   // 링크 미리보기 그림(public/assets/og-tax-ai-architect.png)은 따로 다시 만들어야 한다.
