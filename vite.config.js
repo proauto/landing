@@ -6,7 +6,15 @@ import siteConfig from './site.config.js';
 // HTML 안의 %TAX_AI_CONTACT_EMAIL% 자리를 site.config.js 값으로 채운다.
 const siteConfigHtml = () => ({
   name: 'site-config-html',
-  transformIndexHtml: (html) => html.replaceAll('%TAX_AI_CONTACT_EMAIL%', siteConfig.taxAiContactEmail),
+  transformIndexHtml: (html) => {
+    const h = siteConfig.taxAiHeadline;
+    const headlineHtml = `${h.line1}<br />\n                    ${h.line2Before}<span class="text-brand-600 relative inline-block">${h.highlight}<span class="absolute bottom-1 left-0 w-full h-2.5 bg-brand-100/80 -z-10 rounded-xs"></span></span>${h.line2After}`;
+    const headlineText = `${h.line1} ${h.line2Before}${h.highlight}${h.line2After}`;
+    return html
+      .replaceAll('%TAX_AI_CONTACT_EMAIL%', siteConfig.taxAiContactEmail)
+      .replaceAll('%TAX_AI_HEADLINE_HTML%', headlineHtml)
+      .replaceAll('%TAX_AI_HEADLINE_TEXT%', headlineText);
+  },
 });
 
 export default defineConfig({
