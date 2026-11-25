@@ -76,7 +76,7 @@
             .staticrypt-form .staticrypt-decrypt-button {
                 text-transform: uppercase;
                 outline: 0;
-                background: #2f6fdf;
+                background: #4CAF50;
                 width: 100%;
                 border: 0;
                 padding: 15px;
@@ -88,7 +88,7 @@
             .staticrypt-form .staticrypt-decrypt-button:hover,
             .staticrypt-form .staticrypt-decrypt-button:active,
             .staticrypt-form .staticrypt-decrypt-button:focus {
-                background: #2f6fdf;
+                background: #4CAF50;
                 filter: brightness(92%);
             }
 
@@ -104,7 +104,7 @@
             .staticrypt-content {
                 height: 100%;
                 margin-bottom: 1em;
-                background: #f6f7f9;
+                background: #76B852;
                 font-family: "Arial", sans-serif;
                 -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
@@ -186,7 +186,7 @@
                 <div class="staticrypt-form">
                     <div class="staticrypt-instructions">
                         <p class="staticrypt-title">강의 자료</p>
-                        <p>강의 자료 비밀번호를 넣어 주세요.</p>
+                        <p></p>
                     </div>
 
                     <hr class="staticrypt-hr" />
@@ -197,24 +197,24 @@
                                 id="staticrypt-password"
                                 type="password"
                                 name="password"
-                                placeholder="강의 자료 비밀번호"
+                                placeholder="Password"
                                 autofocus
                             />
 
                             <img
                                 class="staticrypt-toggle-password-visibility"
-                                alt="비밀번호 보기"
-                                title="비밀번호 보기"
+                                alt="Show password"
+                                title="Show password"
                                 src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNTEyIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDYuNS4yIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjQgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZD0iTTM4LjggNS4xQzI4LjQtMy4xIDEzLjMtMS4yIDUuMSA5LjJTLTEuMiAzNC43IDkuMiA0Mi45bDU5MiA0NjRjMTAuNCA4LjIgMjUuNSA2LjMgMzMuNy00LjFzNi4zLTI1LjUtNC4xLTMzLjdMNTI1LjYgMzg2LjdjMzkuNi00MC42IDY2LjQtODYuMSA3OS45LTExOC40YzMuMy03LjkgMy4zLTE2LjcgMC0yNC42Yy0xNC45LTM1LjctNDYuMi04Ny43LTkzLTEzMS4xQzQ2NS41IDY4LjggNDAwLjggMzIgMzIwIDMyYy02OC4yIDAtMTI1IDI2LjMtMTY5LjMgNjAuOEwzOC44IDUuMXpNMjIzLjEgMTQ5LjVDMjQ4LjYgMTI2LjIgMjgyLjcgMTEyIDMyMCAxMTJjNzkuNSAwIDE0NCA2NC41IDE0NCAxNDRjMCAyNC45LTYuMyA0OC4zLTE3LjQgNjguN0w0MDggMjk0LjVjOC40LTE5LjMgMTAuNi00MS40IDQuOC02My4zYy0xMS4xLTQxLjUtNDcuOC02OS40LTg4LjYtNzEuMWMtNS44LS4yLTkuMiA2LjEtNy40IDExLjdjMi4xIDYuNCAzLjMgMTMuMiAzLjMgMjAuM2MwIDEwLjItMi40IDE5LjgtNi42IDI4LjNsLTkwLjMtNzAuOHpNMzczIDM4OS45Yy0xNi40IDYuNS0zNC4zIDEwLjEtNTMgMTAuMWMtNzkuNSAwLTE0NC02NC41LTE0NC0xNDRjMC02LjkgLjUtMTMuNiAxLjQtMjAuMkw4My4xIDE2MS41QzYwLjMgMTkxLjIgNDQgMjIwLjggMzQuNSAyNDMuN2MtMy4zIDcuOS0zLjMgMTYuNyAwIDI0LjZjMTQuOSAzNS43IDQ2LjIgODcuNyA5MyAxMzEuMUMxNzQuNSA0NDMuMiAyMzkuMiA0ODAgMzIwIDQ4MGM0Ny44IDAgODkuOS0xMi45IDEyNi4yLTMyLjVMMzczIDM4OS45eiIvPjwvc3ZnPg=="
                             />
                         </div>
 
                         <label id="staticrypt-remember-label" class="staticrypt-remember hidden">
                             <input id="staticrypt-remember" type="checkbox" name="remember" />
-                            이 기기에서 기억하기
+                            Remember me
                         </label>
 
-                        <input type="submit" class="staticrypt-decrypt-button" value="열기" />
+                        <input type="submit" class="staticrypt-decrypt-button" value="DECRYPT" />
                     </form>
                 </div>
             </div>
@@ -818,11 +818,11 @@ exports.init = init;
 
   return exports;
 })());
-            const templateError = "비밀번호가 맞지 않아요.",
-                templateToggleAltShow = "비밀번호 보기",
-                templateToggleAltHide = "비밀번호 숨기기",
+            const templateError = "Bad password!",
+                templateToggleAltShow = "Show password",
+                templateToggleAltHide = "Hide password",
                 isRememberEnabled = true,
-                staticryptConfig = {"staticryptEncryptedMsgUniqueVariableName":"db0a3ff1f0be86160bf2851f168580bcfa7a9772e13311d9e59d8c44028fa8f8a07461ac9c9e6f55647f3fac129ae0cecddd6a31ef84b719900a4984ebd8149c61b328370943cbfc3a4db1eee98a606733654acd3a5133e25e837ffc0c9d14f8f2b54b363ba5339cc51bde6464dd3797d8495bc4de0c03501e859599c93b7ff85d172dff373b4c6de3404ce7603b0332d5c25e8c4605c5d2b0c18d5ea7d2c36580ef924f72105830c7a50e04e9beeb5093cdf99730d7b6ef88fcb36710febbcc56494549b2fd8b58a4033f328581ac97675eae10a69cb321afb8e13bfa300f86b604682ea0c481aefadf7133678b18d830f4fd3bb01ca59b5a31a9b3f4513d6a1a69204e3556b503f123c9c2bb56f60b094cf8f0eb0068fc0c50f55cf280c6fe3708ac3c8b7507e4abdc390f665623ea4bad46f674d33d24c58c47d625d15e757cbca28522a04cfb704b1aedc63a4fe9ff9ceea220f1b003e6b7258e64a651e4cdda48bc3502f5a001ca44becd36c895e721ff92360189ce6570264f8db3da89ab0ce2317fe73689b6cdbfab2da2be17f4d1027a3272f35846ad499ab1fbaaed9e07575985c9a5fa8ccfc167272cd33ec5ebec9c9c49199e7dff1ea646e1ae3f70fc49c12cbfea3343c27e3766b5213435887437d8384f266ffdd408fab91ffc12a2a30d9a6261b738c2e990f11a86192bb9422932ab89548ce2bf011fa3f0143427d0017cbbb780fac81f96c22b8682f00b612b83aab751696d387d2094d9c59c71296b7c61d4a0cc1dec4f98599aace5374b2f10a08009a21d3e6adffe9cfd37fc755ca44e64104247e61dce6d8cc30c5c8c9952070ad41082076593154be70ff2f7012d9a4a8c7cc308ee83ea576ab62939f58da91b9caf3083d8be3a62b50538b6e00eb8056b0a6ced1e152b0b5ded73b86f68fd519f6e07401e17b31b0f14de856521731c85f46ddd107d28fe2d7ac9594926312715392c9225f44ceeac5a0ed5957511d61728e2b8eeea74345a6a663fc237f77abbf4d8b9822ed0c4bf26cd657a8de9f213320ff707c9821e6c1a78ddef3264d82696adf5e9f5bdeb1695d1619c04be24bf591fa2ba922776d41ebf1255f0465262e64a07be7504129e4b0b34c1b847fa399c9d4a08dac430eb4ceaacc9686c871deaf89f3443337a0ca4e9c17146cecc6419e8ea4ff12f375560a0f0fca250fa4e097206c63b4c7d60b569edabc10b40a9b89de1da2691246a35bb531d88e1a1e49ab8433718119fa685b61aba74e0b25284a0b0ea2ea70f0e0427f191932c092469747ff53946ac38412b103be2f5ae5b278cc4ca7ea5205b3cd8c3bbfa489c5c81900ebdeaf0031d70bbbd0a35cd477b3b0fdd2ad4711cba3c5e222149219697a8701b90b728dc71ea2524da8cdf223cd7c72baaaf80a4dbdac556764a76014e56388919491e9a2f2c7db2c61f5363ef63dec003e95061ad41bb886b0b034f009004ff0814805b0ce51b6d02c8ca4876cbaa613e560dc5e61217f62a2165f681155accd6451241f10eed7cb9a0414468526f1489b7cc38251defb96f4239a7f839cde557299dfd7e6630256bbfabea353d637cb467876c995df67f31b0f9f3fae9021161d6833eca8baff029ce5af5924eae047dce888e0bdbabc4a58981add57f970efb385d58085c8700f7753d099e466828dbb76c25d05fd93dbbb1c604d08d33b1d9e013256aca2b0bb8c39051a95f2b11754b1e0d8a07ff5aeb6606df6ddcebb4158a116f83580825d88f9e3a8ce95c0d74f82f2355061824842300c2127a52a8ad4b875be7533c5201e1e5679629846978f3bac479d9f1d6a899a80f9d940b14eb34cbd5b427b7e5e32e752f632383592516a04dfc7cde7a59091d0e0816a2c1fff66e138e7f90d1ff1d626532c5be16b8379d3df160db93958d195289fc7a29bbb171ac0857cf05beda3fbc3f98f0fb329d159f99345cfcc89e0f2ad60e93617f6bd763fe","isRememberEnabled":true,"rememberDurationInDays":30,"staticryptSaltUniqueVariableName":"6c1f935e8b07d5b487c7890d9adf35c8"};
+                staticryptConfig = {"staticryptEncryptedMsgUniqueVariableName":"6986fcf310280b01bcad463d14c0e1cab3f62986836a46c7026548ed00961fca5f003f199ec525539fcf36b9b7e9f2a04fb6ba0e3b80c55bed753e4d7160d60e7e2b70aaee5ebe56c2e0d8566f9138f8392b7ca52da37c1772923e2088ad4a6f8c114df4a8f87d5940c4263174989881d80bfed4afb2dc61dd66d16a66318c8c6bfb218d1b15883231dc545ded71e89de28bdf369ba99a0106c506fa9e5844badda8835349f5f4d2861224e0504318a013effac1827f715996ebc452aa96865dd451ef85fb375451284503eea0c6b5e3270de5d2f331995200ace2ede882f5d5b337c2a45b38cbd97207a8fb81ff9f0c4a52e4d9a62eb88dc092e09e3aa08018609cf07c6300babe32de3cae8b5ec07ae3e1dec6be17d048e8fe760820aa5f3ae1d9394fb287890205bde6df7f75f03b78edc447f0d507fd25ea3f17d2b14de6cb47295b35f18e37b80a44e15d5525cda31146f819037b71f3bb83422fa2c86c4a6494b126b1e2872766a2e6d553f2c50d7a1f75fbe24e40481a72e8d37462dec1e4e374008761a39b60587edf46fe937cb9cbd9f3372d397fe8b8aed0a31155b15b6ca9e41fb2b041f0f4d20c3003ab1cd4539b549c8e14627086f045df63d28deec22c5d8f006f78611376bf0e8352f7f60b71e50771867e4ca616ac69f6f6745750c7561297c1103fc125deba63d57bcc1c86ccf0b7ab63a05b8852bea85086d7ce59de51c6aea04310a3cdbdf5fcb657f30a6af8fda1516b5bbf5449376954840d6e4a14e5fc14c77974203c3d85a5025c4ef49bb76db8aac930dfb33047a9909f0077dc04260f899fe86c72bcddb57af4f2b756c2ce866a819014260d4224ee212376a494ec5cd7cc52a3a4b822c5b680e447f37fd0b2bf054459ba453afbbd529f77fdb9266766b252e69c511c6f4bc411a166bff9e643c198cd3b40f75a4521e09ffb5eac48a7737e4c5d0d6dd8375f0dded9ffc04a53a880cfa4456bd85a79e31d2299c0e97bfbd762b2d29d3421aa3a43bc8af4bffa8ca4e5251978ec4aebb4bf4eeda6fb9d778eafcaf43efd11c9958b7f965608c75a2a68f01f20b32af64b3f8f4f1538395593b5fd02a8c2b1149c4d992f61a25ea0b554ceea11b9f9f1057676efa2b2d6b59dc03d6f202932fc3153d5edbb0aaadd6dfa1628859b82b03a738b824122412a1277cbaa61ccca519e702873b327d1340c53e1fac4d6da744ce34833003639e4fc6b83f9cdbcbb9ea21b24a105aca913cfa5e710dbca681f72c51571494f2d4aa2802851d752b0c1c5a0048cbb2b0dc3672562a27f7e499e92f1a757aad5a28902e23ba11bca75a1ac8647165c70d37fe88cafcbb486d22c7de4b1906f969c3a01e771f155402e7ae5232b50378ae013c42f89f84e3dbe64709ac0a381e6decf6e2f9b033246dfbdef830a4c6c3632224ea2d7e00675d6d2676c33eeca2346d0307dc36d78a6713913d95933fa24c618e2fb435d6a9fa7690406123ac97c1eec53939140d602ce2e99f6ac9888837f0b8a33f75858b933ae87fdacfa43cfee7fc204d9bb3db95a0be42528cf1e94c0df6e3a2943cf267fd11359a9ad166ace0d9ea54f2b3de1c3744fdc30f4ab20d0e851f1f6ce33cd4681f77d90c4ea20c5be8e85ab851366fb5af940bdc7879965cb17840e5348f68ef8dedf15b0b6c4670c8af680739d89f0c90c9c8e618783a685909bbc3b9f592d5406f2cf9dc7916b90bd8c198697e9ef3334ceeebd3ebad0cc187d99b3c8ce063a83892e060b6aab51b70b00d1494037ead1128ba7f2ff2a91b9d7007c6502c8e0091b41bfab811d82c95d9f2c91bd281d7a02bb1f8ccde9c6f1481cca3a1ab22ba0578a30a9a397e8646808eabb70463200723cc03dedb0f9026dfcedf6473e4df8c09ac4105645388dc56121b3105dcd1cdd546b334d229a8b02066e8c0e9ae4600dc1d8ff642532cc04682d299254a0e3cd35e81a1dbece2a10745ef37009528106426b44dc6597fe92ae83014ca6f953352b4a643e235bd8c57dac2812ba884f2ab17c0c98060838e04cf51cc79388d198752d86b6c38f3e6ff266469fc0ff504d9a18cdfa6f1eb3f20cfbc23e85b00a408dc31e9e9ba88ba0dc33e5768caf4f6464ff3fb73afea3111ff9dba60dc39358bbf92da2660176a7402026b31109113658e30d4c012aea75f244860ed920c50373509672c2affcd7886555","isRememberEnabled":true,"rememberDurationInDays":30,"staticryptSaltUniqueVariableName":"6c1f935e8b07d5b487c7890d9adf35c8"};
 
             // you can edit these values to customize some of the behavior of StatiCrypt
             const templateConfig = {
