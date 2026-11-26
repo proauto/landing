@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "node scripts/lectures-render.mjs",
     "build": "vite build",
     "preview": "vite preview",
     "test:e2e": "playwright test"

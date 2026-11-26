@@ -1,7 +1,7 @@
 // 강의 랜딩(/tax-ai-architect) 전용. 시안(Gemini)이 쓰던 Tailwind CDN 설정을 그대로 옮긴 것이다.
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/tax-ai-architect.html', './src/js/tax-ai-architect.js'],
+  content: ['./src/tax-ai-architect.html', './src/js/tax-ai-architect.js', './scripts/lectures-render.mjs'],
   theme: {
     extend: {
       fontFamily: {

@@ -1,0 +1,18 @@
+{
+  "_comment": "강의 목록 원본 하나. 이 파일만 고치고 npm run build 하면 랜딩(/tax-ai-architect 커리큘럼 칸)과 커리큘럼 페이지(plan-mehcrsko 과정 지도)가 같이 바뀐다. 렌더: scripts/lectures-render.mjs",
+  "planUrl": "/tax-ai-architect/plan-mehcrsko/",
+  "deckBase": "/tax-ai-architect/decks-h33j7k2q/",
+  "summary": "1~3강은 세무사와 직원이 함께 듣습니다. 그 뒤는 직원(4강)·세무사(5강)·구축 담당(6·7강)으로 나뉩니다. 특강·반나절·하루·여러 주 과정으로 강의를 골라 조합할 수 있습니다.",
+  "lectures": [
+    {"no": 1, "title": "AI에게 일 시키기", "audience": "전원", "aud": "all", "deck": "m0.html"},
+    {"no": 2, "title": "AI의 거짓말과 소중한 의뢰인 자료", "audience": "전원(세무사 필수)", "aud": "all", "deck": "m1m2.html"},
+    {"no": 3, "title": "매달 하는 카드 내역 정리는 AI로 어떻게?", "audience": "전원", "aud": "all", "deck": "m3m4.html"},
+    {"no": 4, "title": "스크래핑한 카드 내역, 틀린 곳 찾아 고치기", "audience": "직원 중심, 세무사 참관", "aud": "staff", "deck": "m5m6.html"},
+    {"no": 5, "title": "세무사가 AI 쓸 때 경계해야 하는 것", "audience": "세무사", "aud": "cpa", "deck": "m7.html"},
+    {"no": 6, "title": "거래처 자료를 AI로 모아 보자", "audience": "구축 담당(세무사는 앞부분)", "aud": "ops", "deck": "m8.html"},
+    {"no": 7, "title": "AI가 멈추면 어떻게 대처해야 하나", "audience": "구축 담당", "aud": "ops", "deck": "m9m10.html"}
+  ],
+  "hobby": [
+    {"label": "취미반", "title": "바이브코딩 — 말로 만드는 사무소 도구", "note": "위 1~7강 과정과 별도인 강의", "deck": "vibe.html"}
+  ]
+}

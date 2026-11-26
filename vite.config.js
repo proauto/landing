@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 import tailwindcss from 'tailwindcss';
 import siteConfig from './site.config.js';
+import { loadLectures, renderLanding } from './scripts/lectures-render.mjs';
 
 // HTML 안의 %TAX_AI_CONTACT_EMAIL% 자리를 site.config.js 값으로 채운다.
 const siteConfigHtml = () => ({
@@ -13,7 +14,9 @@ const siteConfigHtml = () => ({
     return html
       .replaceAll('%TAX_AI_CONTACT_EMAIL%', siteConfig.taxAiContactEmail)
       .replaceAll('%TAX_AI_HEADLINE_HTML%', headlineHtml)
-      .replaceAll('%TAX_AI_HEADLINE_TEXT%', headlineText);
+      .replaceAll('%TAX_AI_HEADLINE_TEXT%', headlineText)
+      // 강의 목록은 tax-ai-architect/lectures.json 하나에서 (커리큘럼 페이지와 같은 원본)
+      .replaceAll('%TAX_LECTURES_HTML%', renderLanding(loadLectures()));
   },
 });
 
