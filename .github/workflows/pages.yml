@@ -1,0 +1,46 @@
+# previtlab.com 배포 — 저장소 전체가 아니라 빌드 결과만 올린다(원장 0b7aa403, 개발자 msg 24930).
+# 올리는 것: dist/(vite 빌드 결과, 커밋된 것 그대로) + tax-ai-architect/(암호화된 덱·커리큘럼, 리다이렉트 index)
+# 빼는 것: 저장소 설정·소스(.claude, package.json, vite.config.js, scripts/, src/ …), tax-ai-architect/lectures.json
+# 사용자 도메인은 Pages 설정(cname)으로 유지된다 — Actions 배포는 CNAME 파일을 보지 않는다.
+name: Deploy Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: 올릴 파일만 모으기
+        run: |
+          set -euo pipefail
+          mkdir _site
+          cp -a dist/. _site/
+          mkdir -p _site/tax-ai-architect
+          rsync -a --exclude 'lectures.json' tax-ai-architect/ _site/tax-ai-architect/
+          touch _site/.nojekyll
+          # 안전장치: 저장소 설정·소스가 섞이면 멈춘다
+          for f in .claude .env.example package.json package-lock.json vite.config.js scripts src site.config.js tailwind.config.js tax-ai-architect/lectures.json; do
+            if [ -e "_site/$f" ]; then echo "올리면 안 되는 파일: $f"; exit 1; fi
+          done
+          find _site -type f | wc -l
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4

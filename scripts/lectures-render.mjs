@@ -1,15 +1,17 @@
 // 강의 목록 원본(tax-ai-architect/lectures.json) 하나로 두 페이지를 만든다.
 // - 랜딩 src/tax-ai-architect.html: vite 플러그인(vite.config.js)이 %TAX_LECTURES_HTML% 자리를 빌드 때 채운다.
-// - 커리큘럼 tax-ai-architect/plan-mehcrsko/index.html: `node scripts/lectures-render.mjs`(npm prebuild)가
-//   <!-- lectures:start --> ~ <!-- lectures:end --> 사이를 다시 쓴다.
-// 랜딩은 공개 페이지라 덱 링크를 넣지 않는다(덱 링크는 비공개 커리큘럼 페이지에만).
+// - 커리큘럼(비공개, 개발자 msg 24937): 평문 원본은 저장소 밖(환경변수 LANDING_PLAN_SRC 경로)에만 둔다.
+//   `LANDING_PLAN_SRC=<평문 파일> node scripts/lectures-render.mjs`(npm prebuild)가 그 파일의
+//   <!-- lectures:start --> ~ <!-- lectures:end --> 사이를 다시 쓴다. 저장소에는 StaticCrypt 암호화본
+//   tax-ai-architect/plan-mehcrsko/index.html만 올린다(덱과 같은 비밀번호·salt). 변수가 없으면 건너뛴다.
+// 랜딩은 공개 페이지라 덱·커리큘럼 링크를 넣지 않는다.
 import fs from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 export const LECTURES_JSON = resolve(ROOT, 'tax-ai-architect/lectures.json');
-export const PLAN_HTML = resolve(ROOT, 'tax-ai-architect/plan-mehcrsko/index.html');
+export const PLAN_HTML = process.env.LANDING_PLAN_SRC || '';
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 export const loadLectures = () => JSON.parse(fs.readFileSync(LECTURES_JSON, 'utf8'));
@@ -28,11 +30,7 @@ export function renderLanding(d) {
                             </div>`).join('');
   return `<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">${cards}
                             </div>${hobby}
-                            <p class="mt-4 text-xs sm:text-sm text-slate-500 leading-relaxed">${esc(d.summary)}</p>
-                            <a href="${esc(d.planUrl)}" data-plan-link class="mt-4 inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm sm:text-base font-bold text-navy-800 bg-white hover:bg-slate-50 border border-slate-200 rounded-xl transition-all">
-                                <span>전체 커리큘럼 보기</span>
-                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            </a>`;
+                            <p class="mt-4 text-xs sm:text-sm text-slate-500 leading-relaxed">${esc(d.summary)}</p>`;
 }
 
 const AUD = { '전원': 'all', '직원': 'staff', '세무사': 'cpa', '구축 담당': 'ops' };
@@ -58,5 +56,11 @@ export function writePlan(d = loadLectures(), file = PLAN_HTML) {
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  console.log(writePlan() ? '커리큘럼 페이지 갱신' : '커리큘럼 페이지 변경 없음');
+  if (!PLAN_HTML || !fs.existsSync(PLAN_HTML)) {
+    console.log('커리큘럼 평문 원본(LANDING_PLAN_SRC) 없음 — 커리큘럼 갱신 건너뜀');
+  } else if (resolve(PLAN_HTML).startsWith(ROOT + '/')) {
+    throw new Error('커리큘럼 평문 원본은 저장소 밖에 둔다: ' + PLAN_HTML);
+  } else {
+    console.log(writePlan() ? '커리큘럼 평문 갱신(저장소 밖) — StaticCrypt로 다시 암호화해 올릴 것' : '커리큘럼 평문 변경 없음');
+  }
 }

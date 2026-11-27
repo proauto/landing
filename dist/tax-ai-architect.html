@@ -22,6 +22,12 @@
     <meta name="twitter:description" content="세무 실무 지식을, 실제로 돌아가는 AI 서비스로 만듭니다. 세무 실무와 프로덕트 개발을 모두 겪은 현직 CTO의 실전 강의·특강.">
     <meta name="twitter:image" content="https://previtlab.com/assets/og-tax-ai-architect.png">
 
+    <!-- 보안 헤더(GitHub Pages는 응답 헤더를 못 바꾸니 meta로, index.html과 같은 수준) -->
+    <meta http-equiv="Content-Security-Policy"
+      content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; font-src 'self' data: https://cdn.jsdelivr.net; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; connect-src 'self' https://www.moket.kr https://www.googletagmanager.com https://*.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net;">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
     <!-- Google Analytics (사이트 공통) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M2E4RCFFRC"></script>
     <script>
@@ -36,7 +42,8 @@
 
     <!-- Pretendard (버전 고정) -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    <!-- 원본(비압축) 파일: jsDelivr 자동 압축본은 바뀔 수 있어 SRI를 못 건다 -->
+    <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" integrity="sha384-SN6A48CJQjx946+DRb8wsoifC4a8ur9ZS6R+HCTgnBHOKCa6GLXAR3Qn8d1jztxg">
   <script type="module" crossorigin src="./assets/taxAiArchitect-ClcMLEY1.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/modulepreload-polyfill-B5Qt9EMX.js">
   <link rel="stylesheet" crossorigin href="./assets/taxAiArchitect-CQPXocjE.css">
@@ -383,10 +390,6 @@
                                 <span class="text-slate-500">· 위 1~7강 과정과 별도인 강의</span>
                             </div>
                             <p class="mt-4 text-xs sm:text-sm text-slate-500 leading-relaxed">1~3강은 세무사와 직원이 함께 듣습니다. 그 뒤는 직원(4강)·세무사(5강)·구축 담당(6·7강)으로 나뉩니다. 특강·반나절·하루·여러 주 과정으로 강의를 골라 조합할 수 있습니다.</p>
-                            <a href="/tax-ai-architect/plan-mehcrsko/" data-plan-link class="mt-4 inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm sm:text-base font-bold text-navy-800 bg-white hover:bg-slate-50 border border-slate-200 rounded-xl transition-all">
-                                <span>전체 커리큘럼 보기</span>
-                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            </a>
                         </div>
                     </div>
                 </article>

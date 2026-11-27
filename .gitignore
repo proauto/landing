@@ -83,3 +83,9 @@ chefstack-service-account.json
 
 # Windows special files
 nul
+
+# 사이트에 노출되던 로컬 설정(원장 0b7aa403) — 저장소에 올리지 않는다
+.claude/settings.local.json
+.env.example
+# 커리큘럼 평문은 저장소 밖(LANDING_PLAN_SRC)
+_site/
